@@ -1,0 +1,42 @@
+{% if (isInstanceof(bulbe, "FavoriteBulbe")) %}
+    <a class="bulbeList-tile bulbeList-favorite animated slideUp"
+       href="{{ bulbe.favoriteBulbeUrl }}">
+
+        <div class="bulbeList-imgBlock slideshow">
+{#
+            <img class="bulbeList-img"
+                 src="{{ issetMediaImage(bulbe.thumb1Image) }}"
+                 alt="{{ translateAttribute(bulbe.thumb1Image.description, app.request.locale) }}">
+#}
+
+            <ul class="slideshow-list">
+                {% for i in 1..4 %}
+                    {% set thumb = attribute(bulbe, 'thumb'~i~'Image') %}
+
+                    {% if thumb %}
+                        <li class="slideshow-slide
+                                {% if i==1 %}slideshow-slide--active{% endif %}">
+                            <img class="bulbeList-img"
+                               src="{{ issetMediaImage(thumb) }}"
+                               alt="{{ translateAttribute(thumb.description, app.request.locale) }}">
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="bulbeList-textBlock">
+            <h3 class="bulbeList-favorite--title">
+                <span class="ico ico-heart">
+                    {% include 'svg/heart.svg.twig' with { 'color': '#FFF' } %}
+                </span>
+                {{ translateAttribute(bulbe.title, app.request.locale)|raw }}
+            </h3>
+            <p class="bulbeList-text bulbeList-favorite--describe">
+                {{ translateAttribute(bulbe.description, app.request.locale)|raw|nl2br }}
+            </p>
+        </div>
+
+    </a>
+{% endif %}

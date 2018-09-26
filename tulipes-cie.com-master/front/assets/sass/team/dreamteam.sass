@@ -1,0 +1,128 @@
+$widthTile: 351px
+$heightTile: 351px
+$widthTileMobile: 151px
+$heightTileMobile: 151px
+
+.team .dreamteam
+    width: 100%
+    padding-top: $paddingTopContainer
+    +tabletMobile
+        padding: $paddingContainerMobile
+        background-color: #fff
+
+    &-title
+        text-align: center
+
+    .container
+        margin: auto
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+
+    &-tile
+        width: $widthTile
+        height: $heightTile
+        position: relative
+        margin-right: 16px
+        margin-bottom: 32px
+        cursor: pointer
+
+        &:nth-of-type(3n)
+            margin-right: 0
+
+        +mediumDevice
+            &:nth-of-type(3n)
+                margin-right: 16px
+
+            &:nth-of-type(2n)
+                margin-right: 0
+
+        +tabletMobile
+            width: $widthTileMobile
+            height: $heightTileMobile
+            margin-right: 8px
+            margin-bottom: 20px
+
+            &:nth-of-type(3n)
+                margin-right: 8px
+
+    &-visible
+        line-height: 0
+
+        &__img
+            width: 100%
+            height: 100%
+
+            img
+                width: auto
+                height: auto
+                min-width: 100%
+                min-height: 100%
+                max-width: 100%
+                max-height: 100%
+                overflow: hidden
+                object-fit: cover
+
+    &-name
+        width: 100%
+        height: 48px
+        margin: auto
+        background-color: #fff
+        +alignTextColumn
+        @extend .FabrikatBold
+        font-size: 1em
+        color: $colorBlack1
+        text-align: center
+        text-transform: uppercase
+        +tabletMobile
+            font-size: 0.75em
+            height: 26px
+
+    &-hover
+        display: none
+        position: absolute
+        width: $widthTile
+        height: $heightTile
+        top: 0
+
+        &__img
+            width: $widthTile
+            height: $heightTile
+
+            img
+                width: auto
+                height: auto
+                min-width: 100%
+                min-height: 100%
+                max-width: 100%
+                max-height: 100%
+                overflow: hidden
+                object-fit: cover
+
+        +tabletMobile
+            width: $widthTileMobile
+            height: $heightTileMobile
+
+            &__img
+                width: $widthTileMobile
+                height: $heightTileMobile
+
+
+    &-descript
+        position: absolute
+        bottom: 0
+        @extend .FabrikatBlackItalic
+        font-size: 1.625em
+        color: $colorWhite
+        text-transform: uppercase
+        text-align: center
+        margin: 0
+        padding: 0.625em 0.5em
+        left: 50%
+        transform: translateX(-50%)
+        +tabletMobile
+            font-size: 0.875em
+
+    &-tile:hover > .dreamteam-hover
+        display: block
+

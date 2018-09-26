@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+
+{% block title %}{{ project.title }} - Tulipes & Cie{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/vendor/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/vendor/slick/slick-theme.css') }}">
+    <link rel="canonical" href="{{ app.request.uri }}" />
+{% endblock %}
+
+{% block meta_social %}
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:site"       content="@TulipesCie" />
+    <meta name="twitter:creator"    content="@TulipesCie" />
+
+    <meta property="og:url"         content="{{ url('app_project', {'projectSlug': project.slug}) }}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:title"       content="{{ project.title }}" />
+    <meta property="og:description" content="{{ translateAttribute(project.content, app.request.locale)|striptags|raw }}" />
+    <meta property="og:image"       content="{{ app.request.getSchemeAndHttpHost() ~ issetMediaImage(project.thumb1Image) }}" />
+{% endblock %}
+
+{% block bodyClass %}project{% endblock %}
+
+{% block body %}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.10&appId={{ facebookId }}';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <header class="header" style="background-image: url('{{ vich_uploader_asset(project.headerImage, 'imageFile') }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ project.title }}</h1>
+    </header>
+
+    <section class="customerVideo">
+        <div class="container">
+            <div class="customerVideo-head">
+                <div class="customerVideo-head__left">
+                    <a href="{{ url('app_achievements') }}{{ locale }}/{{ 'slug.achievements'|trans }}"><span><</span> {{ 'project.return'|trans }}</a>
+                </div>
+                <div class="customerVideo-head__right">
+                    <div class="customerVideo-head__desktop">
+                    {% if projectKey > 0 %}
+                        <a href="{{ path('app_project', {'projectSlug': projects[projectKey-1].slug}) }}">{{ 'project.previous'|trans }}</a>
+                        <span class="vertical-bar"> | </span>
+                    {% endif %}
+                    {% if projectKey < projects|length-1 %}
+                        <a href="{{ path('app_project', {'projectSlug': projects[projectKey+1].slug}) }}">{{ 'project.next'|trans }}</a>
+                    {% endif %}
+                    </div>
+
+                    <div class="customerVideo-head__mobile">
+                    {% if projectKey > 0 %}
+                        <a href="{{ path('app_project', {'projectSlug': projects[projectKey-1].slug}) }}">
+                            <span class="ico ico-prev">{% include 'svg/prev.svg.twig' with { 'color': '#333' } %}</span>
+                        </a>
+                    {% endif %}
+                    {% if projectKey < projects|length-1 %}
+                        <a href="{{ path('app_project', {'projectSlug': projects[projectKey+1].slug}) }}">
+                            <span class="ico ico-next">{% include 'svg/next.svg.twig' with { 'color': '#333' } %}</span>
+                        </a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="customerVideo-content">
+                <iframe src="{{ project.videoUrl }}" class="iframeVideo" frameborder="0"
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                {% include 'project-share-links.html.twig' with {'class': 'customerVideo'} %}
+            </div>
+        </div>
+    </section>
+
+    <div class="details">
+        <div class="container">
+            <aside class="details-left">
+
+                <div class="details-list_thumbnails">
+                    {% include 'project-share-links.html.twig' with {'class': 'details'} %}
+
+                    <div class="details-related_img">
+                        <img src="{{ issetMediaImage(project.thumb1Image) }}" alt="{{ translateAttribute(project.thumb1Image.description, app.request.locale) }}">
+                        {% if project.thumb2Image %}
+                            <img src="{{ issetMediaImage(project.thumb2Image) }}" alt="{{ translateAttribute(project.thumb2Image.description, app.request.locale) }}">
+                        {% endif %}
+                        {% if project.thumb3Image %}
+                            <img src="{{ issetMediaImage(project.thumb3Image) }}" alt="{{ translateAttribute(project.thumb3Image.description, app.request.locale) }}">
+                        {% endif %}
+                        {% if project.thumb4Image %}
+                            <img src="{{ issetMediaImage(project.thumb4Image) }}" alt="{{ translateAttribute(project.thumb4Image.description, app.request.locale) }}">
+                        {% endif %}
+                        {% if project.thumb5Image %}
+                            <img src="{{ issetMediaImage(project.thumb5Image) }}" alt="{{ translateAttribute(project.thumb5Image.description, app.request.locale) }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="details-feature">
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Activity'} %}
+
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Customer'} %}
+
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Thematic'} %}
+
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Award'} %}
+
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Director'} %}
+
+                    {% include 'project-filter.html.twig' with {'filter_type': 'Tech'} %}
+                </div>
+            </aside>
+
+            <section class="details-right">
+                {{ translateAttribute(project.content, app.request.locale)|raw }}
+            </section>
+        </div>
+    </div>
+
+    <section class="othersProjects">
+        <div class="container">
+            <div class="othersProjects-slider">
+
+            {% for otherProject in projects if (otherProject.id != project.id ) %}
+                <div class="othersProjects-slide">
+                    <a class="othersProjects-link" href="{{ path('app_project', {'projectSlug': otherProject.slug }) }}">
+                        <img class="othersProjects-img" src="{{ issetMediaImage(otherProject.thumb1Image) }}"
+                             alt="{{ translateAttribute(otherProject.thumb1Image.description, app.request.locale) }}">
+                        <span class="othersProjects-name">{{ otherProject.title|raw|nl2br }}</span>
+                    </a>
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+.cookies-disclaimer
+    width: 100vw
+    height: 33px
+    position: fixed
+    z-index: 100
+    padding: 5px 0
+    bottom: 0
+    +tabletMobile
+        width: 100vw
+        height: auto
+
+    &-content
+        width: 1085px
+        margin: auto
+        background-color: rgba(0, 0, 0, 0.5)
+        color: $colorBlack2
+        @extend .RobotoItalic
+        font-size: 0.75em
+        text-align: center
+        +tabletMobile
+            width: 100%
+
+
+    &-accept
+        border: 1px solid $colorBlack2
+        border-radius: 8px
+        background: transparent
+        color: inherit
+        @extend .RobotoRegular
+        font-size: 10px
+        margin-left: 14px
+        padding: 5px
+        text-transform: uppercase
+
+    p
+        margin: 0

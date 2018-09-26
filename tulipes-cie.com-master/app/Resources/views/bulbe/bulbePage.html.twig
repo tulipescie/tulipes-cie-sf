@@ -1,0 +1,13 @@
+{% if (isInstanceof(bulbe, "BulbePage")) %}
+    <div class="bulbeList-tile bulbeList-page animated slideUp">
+
+        <h2 class="bulbeList-page--title">
+            {{ translateAttribute(bulbe.explainTitle, app.request.locale)|raw }}
+        </h2>
+
+        <div class="bulbeList-page--describe">
+            {{ translateAttribute(bulbe.explainDesc, app.request.locale)|raw }}
+        </div>
+
+    </div>
+{% endif %}

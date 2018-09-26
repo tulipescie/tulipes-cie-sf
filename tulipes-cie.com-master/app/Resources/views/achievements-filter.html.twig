@@ -1,0 +1,14 @@
+
+<div class="filter-customSelect">
+    {% set trans_key = 'achievements.filter' ~ filter_type %}
+    <label for="select-{{ trans_key }}" class="filter-label">
+        <span>{{ trans_key|trans }}</span>
+    </label>
+    <select id="select-{{ trans_key }}" class="filter-select" name="{{ filter_type }}">
+        <option value="">{{ trans_key|trans }}</option>
+        {%  set filters_list = attribute(filters, filter_type) %}
+        {% for filter in filters_list %}
+            <option value="{{filter.id}}">{{ translateAttribute(filter.name, app.request.locale) }}</option>
+        {% endfor %}
+    </select>
+</div>

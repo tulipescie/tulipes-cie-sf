@@ -1,0 +1,45 @@
+.news .social
+
+    .container
+        display: flex
+        +tabletMobile
+            justify-content: center
+
+    &-block
+        flex: 0.25
+
+        &:nth-of-type(2)
+            flex: 0.3
+
+        +tabletMobile
+            flex: initial !important
+            margin: 0 8px
+
+    .ico
+        margin: auto
+        width: 57px
+        height: 57px
+        background-color: #166789
+        +tabletMobile
+            width: 40px
+            height: 40px
+
+        &-circle
+            border: none
+
+        &-svg-fill
+            fill: $colorWhite
+
+        &-linkedin
+            svg
+                margin-top: 5px
+                width: 50%
+
+    &-description
+        color: $colorBlack1
+        @extend .FabrikatBold
+        font-size: 1em
+        text-transform: uppercase
+        text-align: center
+        +tabletMobile
+            display: none

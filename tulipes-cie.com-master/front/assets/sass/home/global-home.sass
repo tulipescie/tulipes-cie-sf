@@ -1,0 +1,106 @@
+.home
+    width: 100vw
+    height: 100vh
+    background-attachment: fixed
+    background-size: cover
+
+    video
+        position: fixed
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+        min-width: 100%
+        min-height: 100%
+        width: auto
+        height: auto
+        z-index: -10
+        filter: brightness(0.7) contrast(1.2)
+        display: none
+
+    &-video
+        +desktop
+            &__desktop.home-video--active
+                display: block
+            &__mobile.home-video--active
+                display: none
+
+        +tabletMobile
+            &__desktop.home-video--active
+                display: none
+            &__mobile.home-video--active
+                display: block
+
+    .spinner
+        position: absolute
+        z-index: 10
+        left: 50%
+        top: 50%
+        display: none
+        transform: translate(-50%, -50%)
+
+    &-container
+        margin: auto
+        width: 80vw
+        height: 90vh
+        +alignTextColumn
+        position: relative
+        +mediumDevice
+            width: 90vw
+        +tabletMobile
+            width: 100%
+
+    .navbar
+        width: 80vw
+        +mediumDevice
+            width: 90vw
+        +tabletMobile
+            width: 100%
+
+    &-bloc_title
+        margin: auto
+        text-align: center
+        +alignTextColumn
+        opacity: 0
+
+        &-title
+            +titleTulipesPage
+
+        &-sub_title
+            @extend .FabrikatThin
+            font-size: 2em
+            color: $colorWhite
+
+    .home-footer
+        width: 100%
+        align-items: center
+        display: flex
+        padding-left: 65px
+        padding-right: 35px
+        +tabletMobile
+            padding: 0
+
+        &-title
+            color: $colorWhite
+            @extend .RobotoRegular
+            font-size: 1em
+            margin: 0
+
+        &-left
+            width: 50%
+            +tabletMobile
+                display: none
+
+        &-right
+            width: 50%
+            align-items: center
+            display: flex
+            justify-content: flex-end
+            +tabletMobile
+                width: 100%
+                margin: auto
+                flex-direction: column
+
+            .social-icons
+                justify-content: flex-end
+                +tabletMobile
+                    justify-content: center

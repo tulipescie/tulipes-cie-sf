@@ -1,0 +1,88 @@
+.agency .awards
+    background-color: $colorGrey4
+    padding: $paddingContainer
+    +tabletMobile
+        padding: 40px 0 0
+
+    .title-section
+        text-align: center
+
+    &-container
+        width: 854px
+        height: 352px
+        margin: 32px auto 0
+        display: flex
+        +tabletMobile
+            flex-direction: column
+            width: $widthContainerMobile
+            margin: 0 auto
+            padding: 24px 0 $paddingContainerMobile
+
+    &-total
+        width: 380px
+        height: 100%
+        background-color: $colorPink1
+        color: $colorWhite
+        +alignTextColumn
+        text-align: center
+        @extend .FabrikatBlack
+
+        &__number
+            font-size: 5.75em
+            margin: 0
+
+        &__name
+            @extend .FabrikatBlack
+            font-size: 1.5em
+            margin: 0
+
+        +tabletMobile
+            width: 100%
+            height: 40px
+            flex-direction: row
+
+            &__number
+                font-size: 24px
+                margin: 0 5px
+                padding: 10px 0
+
+            &__name
+                font-size: 16px
+                padding: 12px 0
+
+    &-list
+        background-color: $colorWhite
+        color: $colorGrey6
+        @extend .RobotoItalic
+        font-size: 1em
+        list-style: none
+        margin: 0
+        padding: 32px 0
+        width: 100%
+        overflow: auto
+        +tabletMobile
+            height: 240px
+
+        &__row
+            margin: 0 50px 20px 78px
+            position: relative
+            text-align: justify
+            &::before
+                content: ''
+                display: block
+                position: absolute
+                +backgroundImage('cup.svg', 16px)
+                width: 16px
+                height: 17px
+                left: -32px
+            +tabletMobile
+                margin: 0 20px 20px 45px
+
+        &__award
+            margin: 0
+            @extend .RobotoItalic
+
+        &__title
+            @extend .RobotoItalic
+            font-style: italic
+            margin: 0

@@ -1,0 +1,73 @@
+{{ form_start(form, {'attr': {'class': 'formContact-form', 'enctype': 'multipart/form-data'}}) }}
+{{ form_errors(form) }}
+
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-01">
+        {{ form_errors(form.company) }}
+        {{ form_widget(form.company, {
+            'attr': {
+                'placeholder': ('contact.form.company'|trans) ~ '*',
+                'class': 'formContact-form__text'
+            }
+        }) }}
+
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {
+            'attr': {
+                'placeholder': ('contact.form.name'|trans) ~ '*',
+                'class': 'formContact-form__text formContact-form__right'
+            }
+        }) }}
+    </div>
+
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-02">
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {
+            'attr': {
+                'placeholder': ('contact.form.email'|trans) ~ '*',
+                'class': 'formContact-form__text'
+            }
+        }) }}
+
+        {{ form_errors(form.telephone) }}
+        {{ form_widget(form.telephone, {
+            'attr': {
+                'placeholder': 'contact.form.telephone'|trans,
+                'class': 'formContact-form__text formContact-form__right'
+            }
+        }) }}
+    </div>
+
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-04">
+        {{ form_errors(form.object) }}
+        {{ form_widget(form.object, {'attr': { 'class': 'formContact-form__select select-object' }}) }}
+    </div>
+
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-05">
+        {{ form_errors(form.message) }}
+        {{ form_widget(form.message, {
+            'attr': {
+                'placeholder': ('contact.form.message'|trans) ~ '*',
+                'class': 'formContact-form__textarea'
+            }
+        }) }}
+    </div>
+
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-06">
+        {{ form_errors(form.file) }}
+        {{ form_label(form.file, 'contact.form.file'|trans) }}
+        {{ form_widget(form.file, {}) }}
+    </div>
+    <div class="formContact-form__row animated fadeSlideRtoL animated--delay-07">
+        <div class="g-recaptcha">
+            <label data-target="recaptcha" class="error-label"></label>
+            <div id="form-recaptcha"></div>
+        </div>
+
+        {{ form_widget(form.send, {
+            'label': 'contact.form.submit'|trans,
+            'attr': {'class': 'formContact-form__submit formContact-form__right'}
+        }) }}
+    </div>
+
+{{ form_rest(form) }}
+{{ form_end(form) }}

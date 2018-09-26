@@ -1,0 +1,33 @@
+
+@mixin projectsResponsive($widthBigTileResponsive, $heightBigTileResponsive, $widthTileResponsive, $heightTileResponsive, $tileGapResponsive)
+    .achievements .projects
+        &-row
+            height: $heightBigTileResponsive + ($heightTileResponsive * 2) + ($tileGapResponsive * 3)
+            width: $widthBigTileResponsive
+            position: relative
+            margin: 0 auto
+
+        .projects-tile
+            &:nth-child(1)
+                left: 0
+                top: 0
+                width: $widthBigTileResponsive
+                height: $heightBigTileResponsive
+
+            &:nth-child(1), &:nth-child(2), &:nth-child(4)
+                left: 0
+
+            &:nth-child(3), &:nth-child(5)
+                left: $widthTileResponsive + $tileGapResponsive
+
+            &:nth-child(3), &:nth-child(2)
+                top: $heightBigTileResponsive + $tileGapResponsive
+
+            &:nth-child(4), &:nth-child(5)
+                top: $heightBigTileResponsive + $heightTileResponsive + ($tileGapResponsive * 2)
+
+        &-tile
+            width: $widthTileResponsive
+            height: $heightTileResponsive
+            margin-right: $tileGapResponsive
+            margin-bottom: $tileGapResponsive

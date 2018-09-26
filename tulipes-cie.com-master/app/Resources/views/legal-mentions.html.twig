@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% if legal_notice_page is not null and legal_notice_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(legal_notice_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if legal_notice_page is not null and legal_notice_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(legal_notice_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if legal_notice_page is not null and legal_notice_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(legal_notice_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}legalMentions{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(legal_notice_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(legal_notice_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="legalMentions-content">
+        <div class="container">
+            {{ translateAttribute(legal_notice_page.content, app.request.locale)|raw }}
+        </div>
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host: 127.0.0.1
+    database_port: ~
+    database_name: symfony
+    database_user: root
+    database_password: ~
+    # You should uncomment this if you want to use pdo_sqlite
+    #database_path: '%kernel.project_dir%/var/data/data.sqlite'
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: ~
+    mailer_password: ~
+    # All emails will have this as BCC
+    mailer_admin_string: dev@caramia.fr,other_email@caramia.fr
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    # Google recaptcha
+    recaptcha_key: 6Le6YDIUAAAAAJFI_QIVPCzCUirjJwOKOA9IYCwW
+    recaptcha_secret: 6Le6YDIUAAAAAMErloWAFAOG0CagKis-hAqfwzks
+
+    # Facebook API
+    facebook_api_key: 1443924682329300
+    facebook_api_secret: bfc1318330c1e91b0362f080168dca57
+    facebook_api_token: 1443924682329300|6DkTFKRlZYiMwXVM7LCYMCzeANU
+    facebook_page_id: 282080538471650
+
+    # Twitter API
+    twitter_api_key: wIshcTY5eAYpkT8AcHCm42wSs
+    twitter_api_secret: wqUcA54xn7Dts3pvzr5g6PPfLhfwSNnwx8KM5hgDVti43pMG6K
+    twiter_owner: TulipesCie
+
+    # LinkedIn API
+    linkedin_api_key: 86yf9ur3sla1l0
+    linkedin_api_secret: UJd1Zqp5EGPHqB1V
+    linkedin_company_id: 2901072
+
+    # Instagram API
+    instagram_api_key: 8284c252899e4ecb9afdfcdb42a99a19
+    instagram_api_secret: b656877ceddf49a6bbc4af34e122da85
+

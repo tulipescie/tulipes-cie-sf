@@ -1,0 +1,118 @@
+menu:
+    home: Home
+    agency: Agency
+    team: Team
+    achievements: Achievements
+    bulbe: The Bulbe
+    news: News
+    contact: Contact
+
+slug:
+    agency: agency
+    team: team
+    achievements: our-work
+    bulbe: bulbe
+    project: project
+    news: news
+    contact: contact
+    legal_mentions: legal-notice
+
+home:
+    sub_title: audiovisual communication agency
+    newsletter:
+        txtOpen: Newsletter
+        title: Newsletter
+        text: To keep up to date with the latest news and achievements of Tulipes, subscribe to the newsletter.
+        plachoder_email: Enter your email
+        submit: Subscribe
+        email_valide: The entered email is valid.
+        email_no_valide: The entered email is not valid.
+        error: There is an error when sending the form. You haven't been registered.
+        success: Your registration has been taken into account.
+
+agency:
+    awards: awards
+    more_awards: + than
+
+achievements:
+      filterActivity: Activity
+      filterThematic: Thematics
+      filterAward: Awards
+      filterTech: Formats or technologies
+      filterCustomer: Customers
+      filterDirector: Directors
+      filter:
+          disp: Show filters
+          apply: Apply filters
+          cancel: Cancel
+          reset: Reset filters
+          reset-mobile: Reset
+      no_project: There are currently no visible projects.
+      no_project_by_filters: No existing projects match your selection.
+
+project:
+    return: Back to achievements
+    bulbe_return: Back to The Bulbe
+    previous: Previous project
+    next: Next project
+    share: Share this project
+    Activity: Sector(s)
+    Customer: Customer(s)
+    Thematic: Theme(s)
+    Award: Winning film
+    Director: Director(s)
+    Tech: Format(s)
+
+footer:
+    tulipes: Tulipes
+    adress: 75, rue des Plantes
+    cp_city: 75014 Paris
+    phone: +33 (0)1 42 23 54 75
+    contact_form_link: Contact Form
+    recruitment_link: Recruitment
+    tulipes&cie: TULIPES&CIE
+    agency: The agency
+    team: The team
+    achievement: Our projects
+    lab: The Bulbe
+    news: News
+    techno: Our technologies
+    newsletter_title: Subscribe to the Newsletter
+    newsletter_placeholder: Your email address
+    newsletter_submit: OK
+    cookie: Cookies
+    legal_mentions: Legal notices
+    credits: Crédits
+
+news:
+    description:
+        linkedin: "We talk to you about <br> storytelling,<br> our stories, your stories."
+        twitter: "We tweet #innovation<br> #storytelling #Digitalisation<br> #Ville #Société #Futur"
+        facebook: "We share <br>our experiences... <br> Are you ready?"
+        instagram: "#backstages <br>Life at Tulipes <br>as if you were there!"
+
+contact:
+    name: Tulipes
+    adress: 75, rue des plantes
+    cp_city: 75014 Paris
+    phone: +33 (0)1 42 23 54 75
+    text: Would you like to send us a declaration of love or would you like to meet us for coffee?
+    contact_us: Do not hesitate to contact us!
+    form:
+        company: Company
+        name: Your name
+        email: Email
+        telephone: Phone
+        object: Choose an Object*
+        file: Attachment (Word or PDF)
+        message: Your message
+        submit: Send us
+        mandatory: mandatory fields
+        response: Thank you for your message. We will give you a return by email as soon as possible.
+        recaptcha_error: Please prove that you are not a robot.
+        send_error: An error when sending the form. Please try again later.
+
+
+view_more: View more
+contact_us: Contact us!
+cookies_disclaimer: By continuing your browsing on this site, you accept the use of cookies to obtain statistics of visits. <button class="%button_class%">Accept</button>

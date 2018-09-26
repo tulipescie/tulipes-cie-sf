@@ -1,0 +1,92 @@
+.bulbe .projects
+
+    .container
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        padding-top: 0
+        padding-bottom: 80px
+        +tabletMobile
+            padding-bottom: 40px
+
+    &-tile
+        width: 542px
+        height: 337px
+        position: relative
+        cursor: pointer
+        +mediumDevice
+            width: 492px
+            height: 306px
+        +tabletMobile
+            width: 226px
+            height: 141px
+        +mediumMobile
+            margin-bottom: 40px
+        +smallMobile
+            margin-bottom: 40px
+
+
+        > *
+            backface-visibility: hidden
+            transition: all 0.6s ease
+            transform-style: preserve-3d
+
+        &:hover::before
+            content: ''
+            display: block
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            top: 0
+            background-color: rgba(126, 167, 0, 0.9)
+            z-index: 1
+
+    &-img
+        width: auto
+        height: auto
+        min-width: 100%
+        min-height: 100%
+        max-width: 100%
+        max-height: 100%
+        overflow: hidden
+        object-fit: cover
+
+    &-name
+        position: absolute
+        left: 50%
+        top: 50%
+        width: 80%
+        @extend .FabrikatBold
+        font-size: 2em
+        text-transform: uppercase
+        text-align: center
+        color: $colorWhite
+        z-index: 1
+        transform: translate(-50%, -50%) rotateY(-179deg)
+        +tabletMobile
+            font-size: 1em
+
+        .ico
+            display: block
+            margin: 0 auto 30px
+            width: 118px
+            height: 164px
+            +tabletMobile
+                width: 54px
+                height: 75px
+                margin: 0 auto 12px
+            svg
+                width: 100%
+                height: 100%
+
+    &-tile:hover
+        .projects-img
+            position: absolute
+            transform: rotateY(180deg)
+
+        .projects-name
+            transform: translate(-50%, -50%) rotateY(0)
+
+    .btn-view-more
+        margin-bottom: 40px

@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyClass %}instagram{% endblock %}
+{% block body %}
+    <input type="hidden" class="instagram-url-token" value="{{ url('instagram_access_token') }}">
+    {#<div class="insta-access-token"></div>#}
+{% endblock %}

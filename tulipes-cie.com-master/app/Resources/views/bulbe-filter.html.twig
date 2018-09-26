@@ -1,0 +1,3 @@
+{% for filter in bulbe_page.promotedProject.getFiltersWithLabel(filter_type) %}
+    {{ translateAttribute(filter.name, app.request.locale) }},
+{% endfor %}

@@ -1,0 +1,128 @@
+.project .details
+    width: 100%
+    @extend .RobotoRegular
+    color: $colorBlack2
+    padding-bottom: 48px
+    font-size: 1em
+    +tabletMobile
+        padding: 0
+
+    .container
+        width: 865px
+        display: flex
+        padding: 0
+        +tabletMobile
+            width: 100vw
+            flex-direction: column
+
+    &-left
+        width: 375px
+        height: 100%
+        border-right: 2px solid $colorGrey3
+        padding: 50px 62px 37px 0
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        text-align: right
+        +tabletMobile
+            width: 100%
+            background-color: $colorGrey4
+            border: none
+            padding: 20px 5vw
+            flex-direction: row
+            justify-content: initial
+            text-align: left
+
+    &-share
+        margin-bottom: 5px
+        justify-content: flex-end
+        +tabletMobile
+            display: none
+
+    &-social
+        display: none
+        justify-content: flex-end
+        +tabletMobile
+            display: none !important
+
+        &__link
+            margin-left: 10px
+
+        .ico
+            width: 23px
+            height: 23px
+            background-color: #000
+
+            &-svg-fill
+                fill: #fff
+
+            &-twitter
+                svg
+                    width: 70%
+
+            &-mail
+                background-color: #fff
+                .ico-svg-fill
+                    fill: #000
+
+    &-related_img
+        width: 204px
+        float: right
+        margin-top: 15px
+
+        img
+            +imageAdmin
+            min-width: 0
+            max-width: 100%
+            margin-bottom: 16px
+
+        +tabletMobile
+            width: 120px
+            margin-top: 0
+
+            img
+                margin-bottom: 8px
+                &:last-of-type
+                    margin-bottom: 0
+
+
+    &-feature
+        margin-top: 16px
+        +tabletMobile
+            margin-top: 0
+            margin-left: 30px
+
+        &__group
+            margin-bottom: 26px
+            +tabletMobile
+                margin-bottom: 15px
+
+        &__title
+            @extend .RobotoBold
+
+        p
+            margin: 0
+
+    &-right
+        padding: 10px 0 37px 62px
+        text-align: justify
+        +tabletMobile
+            margin: auto
+            padding: 27px 5vw 33px
+            text-align: center
+
+        h1, h2, h3, h4, h5, h6
+            @extend .FabrikatBlack
+            color: $colorBlack1
+            margin-top: 40px
+            margin-bottom: 18px
+
+            +tabletMobile
+                margin-top: 20px
+                margin-bottom: 7px
+                &:first-of-type
+                    margin-top: 0
+
+
+        p
+            margin: 0

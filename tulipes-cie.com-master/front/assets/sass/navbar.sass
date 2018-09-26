@@ -1,0 +1,283 @@
+$color-home: #007d92
+$color-agency: $colorPink1
+$color-team: #e15a4f
+$color-achievements: #14b4c8
+$color-bulbe: #7ea700
+$color-project: #14b4c8
+$color-news: #e64b1e
+$color-contact: #ffb400
+$color-legalMentions: #007d92
+
+.navbar
+    display: flex
+    padding: 37px 35px 0 65px
+    //overflow: hidden
+    position: fixed
+    z-index: 10
+    top: 0
+    width: 100%
+    background: transparent
+    color: $colorWhite
+    transition: all .5s ease
+    +tabletMobile
+        background-color: $colorWhite
+        height: 40px
+        padding: 16px 10px 8px
+
+    &-brand
+        width: 30%
+        +tabletMobile
+            width: 55%
+
+        img
+            width: auto
+            max-height: 65px
+
+        .ico-tulipes
+            width: 170px
+            height: 67px
+            margin-top: 2px
+
+            svg
+                width: 100%
+
+            .svg-tulipes
+                fill: $colorWhite
+
+    +tabletMobile
+        .ico-tulipes
+            width: 40%
+            height: 40%
+            svg
+                max-height: 24px
+            .svg-tulipes
+                fill: $colorBlack0
+
+    &-burger
+        width: 25px
+        height: 17px
+        display: block
+        padding: 0
+        margin: 0
+        position: relative
+        border-top: $colorBlack0
+        border-width: 2px 0 0 0
+        border-style: solid
+        background-color: transparent
+        margin-left: auto
+        +desktop
+            display: none
+
+        &::before, &::after
+            content: ''
+            display: block
+            width: 100%
+            height: 2px
+            position: absolute
+            background-color: $colorBlack0
+            left: 0
+            transition: transform .3s ease
+
+        &::before
+            top: 50%
+            margin-top: -3px
+
+        &::after
+            bottom: 1px
+
+
+        &__active
+            border-top: none
+            &::before
+                transform: rotate(45deg)
+                margin-top: -6px
+            &::after
+                transform: rotate(-45deg) translate(7px, -8px)
+
+
+    &-menu
+        list-style: none
+        width: 70%
+        margin: 0
+        padding: 0
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        +tabletMobile
+            width: 100%
+            height: 0
+            background-color: rgba(0, 0, 0, 0.9)
+            position: absolute
+            flex-direction: column
+            justify-content: start
+            padding-top: 50px
+            top: -50px
+            left: 0
+            overflow: hidden
+            box-sizing: border-box
+            transition: all 500ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
+
+            &__open
+                height: 100vh
+                top: 40px
+
+        li
+            padding: 0
+            margin-right: 1.25em
+            +tabletMobile
+                margin: 0 0 17px
+
+        &__footer
+            display: none
+            @extend .FabrikatRegular
+            font-size: 0.75em
+            color: $colorGrey7
+            text-align: center
+            +tabletMobile
+                display: flex
+                flex-direction: column
+                position: absolute
+                bottom: 40px
+                margin: 0
+
+                .ico
+                    border: 2px solid $colorGrey7
+
+                    .ico-svg-fill
+                        fill: $colorGrey7
+
+        &__credits
+            margin-top: 26px
+            margin-bottom: 0
+
+        &__link
+            @extend .RobotoRegular
+            font-size: 1em
+            text-decoration: none
+            padding-bottom: 6px
+            position: relative
+            cursor: pointer
+            +tabletMobile
+                font-size: 1.5em
+
+            &::after
+                content: ''
+                display: block
+                position: absolute
+                background-color: $colorWhite
+                bottom: 0
+                height: 2px
+                width: 0
+                left: 50%
+                transform: translateX(-50%)
+                transition: width .3s ease
+                +tabletMobile
+                    content: none
+
+            &-active, &:hover
+                &::after
+                    width: 100%
+
+.navbar.sticky
+    +desktop
+        background-color: $colorWhite
+        color: $colorBlack1
+        padding: 18px 35px 18px 65px
+
+
+        .ico-tulipes
+            width: 86px
+            height: 32px
+
+        .svg-tulipes
+            fill: $colorBlack1
+
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $colorBlack1
+
+    +tabletMobile
+        .ico-tulipes
+            width: 40%
+            height: 40%
+
+        .svg-tulipes
+            fill: $colorBlack0
+
++desktop
+    .agency .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-agency
+
+    .team .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-team
+
+    .achievements .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-achievements
+
+    .bulbe .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-bulbe
+
+    .project .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-project
+
+    .news .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-news
+
+    .contact .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-contact
+
+    .legalMentions .sticky.navbar
+        .navbar-menu
+            &__link
+                &::after
+                    background-color: $color-legalMentions
+
++tabletMobile
+    .home .navbar-menu__link-active
+        color: $color-home
+
+    .agency .navbar-menu__link-active
+        color: $color-agency
+
+    .team .navbar-menu__link-active
+        color: $color-team
+
+    .achievements .navbar-menu__link-active
+        color: $color-achievements
+
+    .bulbe .navbar-menu__link-active
+        color: $color-bulbe
+
+    .project .navbar-menu__link-active
+        color: $color-project
+
+    .news .navbar-menu__link-active
+        color: $color-news
+
+    .contact .navbar-menu__link-active
+        color: $color-contact
+
+    .legalMentions .navbar-menu__link-active
+        color: $color-legalMentions

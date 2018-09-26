@@ -1,0 +1,83 @@
+.project .customerVideo
+    width: 100%
+
+    .container
+        padding-bottom: 32px
+        +tabletMobile
+            padding: 14px 0 0
+
+    &-head
+        display: flex
+        @extend .RobotoBold
+        font-size: 1em
+        color: $colorBlack1
+        margin-bottom: 1.25em
+        +tabletMobile
+            font-size: 0.75em
+
+        &__left
+            width: 50%
+
+        &__right
+            width: 50%
+            text-align: right
+
+        &__desktop
+            +tabletMobile
+                display: none
+
+        &__mobile
+            display: none
+            +tabletMobile
+                margin-top: 2px
+                display: flex
+                justify-content: flex-end
+
+                .ico
+                    width: 10px
+                    height: 12px
+
+                    svg
+                        width: 100%
+                    &-prev
+                        margin-right: 10px
+                    &-next
+                        margin-left: 10px
+
+        a:hover
+            text-decoration: underline
+
+    &-content
+
+    &-share, &-social
+        display: none
+        +tabletMobile
+            display: flex
+            justify-content: center
+            margin-top: 16px
+            margin-bottom: 12px
+
+    &-social
+        +desktop
+            display: none !important
+        +tabletMobile
+            display: none
+            &__link
+                margin-left: 10px
+
+            .ico
+                width: 23px
+                height: 23px
+                background-color: #000
+
+                &-svg-fill
+                    fill: #fff
+
+                &-twitter
+                    svg
+                        width: 70%
+
+                &-mail
+                    background-color: #fff
+                    .ico-svg-fill
+                        fill: #000

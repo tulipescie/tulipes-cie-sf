@@ -1,0 +1,25 @@
+@import "projects-mixin"
+
+@media (max-width: #{430px - 1px})
+    $widthBigTileTinyMobile: 240px
+    $heightBigTileTinyMobile: 151px
+    $widthTileTinyMobile: 118px
+    $heightTileTinyMobile: 73px
+    $tileGapTinyMobile: 2px
+    +projectsResponsive($widthBigTileTinyMobile, $heightBigTileTinyMobile, $widthTileTinyMobile, $heightTileTinyMobile, $tileGapTinyMobile)
+
+@media (min-width: #{430px}) and (max-width: #{$small - 1px})
+    $widthBigTileTinyMobile: 374px
+    $heightBigTileTinyMobile: 235px
+    $widthTileTinyMobile: 185px
+    $heightTileTinyMobile: 115px
+    $tileGapTinyMobile: 2px
+    +projectsResponsive($widthBigTileTinyMobile, $heightBigTileTinyMobile, $widthTileTinyMobile, $heightTileTinyMobile, $tileGapTinyMobile)
+
++tablet
+    $widthBigTileTinyMobile: 500px
+    $heightBigTileTinyMobile: 313px
+    $widthTileTinyMobile: 248px
+    $heightTileTinyMobile: 154px
+    $tileGapTinyMobile: 2px
+    +projectsResponsive($widthBigTileTinyMobile, $heightBigTileTinyMobile, $widthTileTinyMobile, $heightTileTinyMobile, $tileGapTinyMobile)

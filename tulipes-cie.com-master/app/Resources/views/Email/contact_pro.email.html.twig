@@ -1,0 +1,33 @@
+{% extends "base_layout.email.html.twig" %}
+
+{% block subject %}
+    {{ 'email.contact_pro.subject'|trans }}
+{% endblock %}
+
+{% block email_content %}
+    <tr>
+        <td valign="middle" style="padding: 0 0 0 66px;">
+            <h1 style="margin: 22px 0;font-size: 30px;margin: 0;white-space:nowrap;color:#fbfbf9;line-height: 1.2;">
+                {{ title|trans|raw }}
+            </h1>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="padding: 40px 40px 40px 66px;">
+            <p style="margin: 22px 0;font-size: 16px;line-height: 22px;">
+                {{ 'email.contact_pro.text1'|trans|raw }}
+            </p>
+            <p style="margin: 30px 0;text-align: center;">
+                <a class="btn" href="{{ url('pro_homepage') }}" style="display: block;height: 50px;line-height: 50px;background-color: #fff;margin:0;border-radius:30px;font-size: 12px;text-transform: uppercase;color:#333;text-decoration: none;font-weight: bold;width:240px">
+                    {{ 'email.contact_pro.button'|trans }}
+                </a>
+            </p>
+            <p style="font-size: 16px;">
+                {{ 'email.contact_pro.signature'|trans }}
+            </p>
+            {% autoescape false %}
+            {% endautoescape %}
+        </td>
+    </tr>
+{% endblock %}

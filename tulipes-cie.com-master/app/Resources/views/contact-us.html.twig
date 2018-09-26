@@ -1,0 +1,9 @@
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+
+<section class="contact-us animated fadeIn">
+    <a class="btn contact-us__btn" href="{{ path('app_contact') }}{{ locale }}/{{ 'slug.contact'|trans }}">{{ 'contact_us'|trans }}</a>
+</section>

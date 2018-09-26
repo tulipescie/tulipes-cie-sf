@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+
+{% if agency_page is not null and agency_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(agency_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if agency_page is not null and agency_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(agency_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if agency_page is not null and agency_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(agency_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/vendor/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/vendor/slick/slick-theme.css') }}">
+{% endblock %}
+{% block bodyClass %}agency{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(agency_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(agency_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="contentHead">
+        <div class="container animated slideUp">
+            {% if agency_page.videoUrl %}
+                <iframe class="iframeVideo" src="{{ agency_page.videoUrl }}" frameborder="0" allowfullscreen></iframe>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="view" id="vision">
+        <h2 class="title-section animated slideUp">{{ translateAttribute(agency_page.visionTitle, app.request.locale)|raw|nl2br }}</h2>
+        <div class="container">
+
+            <div class="view-left view-nav">
+            {% for vision in visions %}
+                <a href="#vision-{{ vision.id }}"
+                   class="view-name {% if loop.index0 ==0 %}view-name__active{% endif %}
+                           animated animated--delay-0{{ loop.index }} fadeSlideLtoR">
+                    {{ translateAttribute(vision.title, app.request.locale)|raw|nl2br }}
+                </a>
+            {% endfor %}
+            </div>
+            <div class="view-btn_nav">
+                <button class="slider-nav slider-next">{% include 'svg/next.svg.twig' with { 'color': '#FF375A' } %}</button>
+                <button class="slider-nav slider-prev">{% include 'svg/prev.svg.twig' with { 'color': '#FF375A' } %}</button>
+            </div>
+
+            <div id="vision" class="view-right view-for animated slideUp">
+                {% for vision in visions %}
+                    <article class="view-describe {% if loop.index0 ==0 %}view-describe__active{% endif %}" id="vision-{{ vision.id }}">
+                        {{ translateAttribute(vision.description, app.request.locale)|raw }}
+                    </article>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    <section class="job">
+        <div class="container">
+            <div class="job-head animated slideUp">
+                <h2 class="title-section">{{ translateAttribute(agency_page.figureTitle, app.request.locale)|raw|nl2br }}</h2>
+                <p class="job-subTitle">{{ translateAttribute(agency_page.figureDescription, app.request.locale)|raw|nl2br }}</p>
+            </div>
+
+            <div class="job-list">
+                <div class="job-numbers-col job-nav">
+                    {% for figure in figures %}
+                        <div class="job-number job-item {% if loop.index == 1 %}job-number__active{% endif %}
+                                    animated animated--delay-0{{ loop.index }} slideUp">
+
+                            <span>{{ figure.position }}</span>
+
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="job-text-col job-for">
+                    {% for figure in figures %}
+                        <div id="job-{{ figure.position }}"
+                             class="job-text job-item {% if loop.index == 1 %}job-text__active{% endif %}
+                                    animated animated--delay-0{{ loop.index }} slideUp">
+
+                            <h3 class="job-title">{{ translateAttribute(figure.title, app.request.locale)|raw|nl2br }}</h3>
+                            <p class="job-describe">
+                                {{ translateAttribute(figure.description, app.request.locale)|raw|nl2br }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="awards">
+        <h2 class="title-section animated slideUp">
+            {{ translateAttribute(agency_page.numberTitle, app.request.locale)|raw|nl2br }}
+        </h2>
+        <div class="awards-container animated slideUp animated-counter">
+            <div class="awards-total">
+                <p class="awards-total__name">{{ 'agency.more_awards'|trans }}</p>
+                <h3 class="awards-total__number"><span class="count">{{ (awards|length + 80) }}</span></h3>
+                <p class="awards-total__name">{{ 'agency.awards'|trans }}</p>
+            </div>
+            <ul class="awards-list">
+                {% for award in awards %}
+                    <li class="awards-list__row">
+                        <p class="awards-list__award">
+                            <span class="awards-list__title">{{ translateAttribute(award.title, app.request.locale)|raw|nl2br  }}</span><br>
+                            {#{{ translateAttribute(award.description, app.request.locale)|raw|nl2br  }}#}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="numbers">
+        <div class="container">
+            <div class="numbers-slider animated-counter">
+                {% for number in numbers %}
+                    <div class="numbers-slide">
+                        <h3 class="numbers-number"><span class="count">{{ number.total }}</span></h3>
+                        <h4 class="numbers-data">{{ translateAttribute(number.title, app.request.locale)|raw|nl2br }}</h4>
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="slider-nav slider-prev">{% include 'svg/prev.svg.twig' with { 'color': '#fff' } %}</button>
+            <button class="slider-nav slider-next">{% include 'svg/next.svg.twig' with { 'color': '#fff' } %}</button>
+        </div>
+    </section>
+
+    <section class="customers" id="clients">
+        <div class="container">
+            <h2 class="title-section animated slideUp">{{ translateAttribute(agency_page.customerTitle, app.request.locale)|raw|nl2br }}</h2>
+            <div class="customers-slider animated slideUp">
+                {% for customer in customers %}
+                    <a class="customers-slide"
+                       href="{{ url('app_achievements') }}{{ locale }}/{{ 'slug.achievements'|trans }}#filters:customer={{ customer.id }}">
+                        <img class="customers-logo customers-logo-black" src="{{ issetMediaImage(customer.logoBlackImage) }}"
+                             alt="{{ translateAttribute(customer.logoBlackImage.description, app.request.locale) }}"
+                             title="{{ translateAttribute(customer.name, app.request.locale) }}">
+                        <img class="customers-logo customers-logo-cmjn" src="{{ issetMediaImage(customer.logoCmjnImage) }}"
+                             alt="{{ translateAttribute(customer.logoCmjnImage.description, app.request.locale) }}"
+                             title="{{ translateAttribute(customer.name, app.request.locale) }}">
+                    </a>
+                {% endfor %}
+            </div>
+            <button class="slider-nav slider-prev">{% include 'svg/prev.svg.twig' with { 'color': '#999' } %}</button>
+            <button class="slider-nav slider-next">{% include 'svg/next.svg.twig' with { 'color': '#999' } %}</button>
+        </div>
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

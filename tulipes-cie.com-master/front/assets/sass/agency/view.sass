@@ -1,0 +1,140 @@
+.agency .view
+    width: 100%
+    background-color: $colorGrey4
+    padding-top: $paddingTopContainer
+    +tabletMobile
+        padding-top: $paddingTopContainerMobile
+
+    .title-section
+        margin: 0
+        text-align: center
+
+    .container
+        display: flex
+        +tabletMobile
+            padding: 25px 0 33px
+            flex-direction: column
+
+    &-left
+        width: 50%
+        display: flex
+        flex-direction: column
+        margin-bottom: 33px
+        +tabletMobile
+            width: 100%
+            flex-direction: row
+            margin: 0
+
+    &-right
+        width: 50%
+        margin-bottom: 33px
+        padding-left: 85px
+        +tabletMobile
+            width: 100%
+            margin: 0
+            padding: 0
+
+    &-name
+        margin: 0
+        margin-bottom: 33px
+        border-right: 5px solid $colorGrey3
+        padding-left: 200px
+        padding-right: 30px
+        text-align: right
+        @extend .FabrikatBlackItalic
+        font-size: 1.5em
+        color: $colorGrey3
+        +alignTextColumn
+        +tabletMobile
+            border: none
+            border-top: 2px solid $colorPink1
+            border-bottom: 2px solid $colorPink1
+            color: $colorPink1
+            font-size: 1em
+            text-align: center
+            margin: 0
+            padding: 8px 0 12px
+
+        &__active, &:hover
+            border-right: 5px solid $colorPink1
+            color: $colorPink1
+            +tabletMobile
+                border-right: none
+                border-top: 2px solid $colorPink1
+                border-bottom: 2px solid $colorPink1
+            
+        &__active
+            font-size: 48px
+            padding-left: 32px
+            +tabletMobile
+                font-size: 1em
+                padding: 8px 0 12px
+
+
+    &-describe
+        display: none
+        @extend .RobotoRegular
+        font-size: 1em
+        color: $colorGrey6
+        text-align: justify
+        +tabletMobile
+            text-align: center
+
+        p
+            margin-top: 0
+            margin-bottom: 23px
+
+        p:first-of-type
+            @extend .FabrikatBlack
+            font-size: 2em
+            color: $colorPink1
+            margin-top: 14px
+            margin-bottom: 33px
+            +tabletMobile
+                font-size: 1em
+                margin-top: 26px
+                margin-bottom: 18px
+
+        a
+            text-decoration: underline
+            color: $colorPink1
+
+        &__active
+            display: block
+
+    &-btn_nav
+        position: relative
+        margin-top: -20px
+        margin-bottom: 20px
+        +desktop
+            display: none
+
+        .slider-nav
+            width: 16px
+            height: 15px
+
+            svg
+                height: 100%
+                position: absolute
+                top: 0
+
+        .slider-next
+            right: 15px
+
+    .slick-dots
+        li
+            background-color: $colorGrey3
+            width: 40px
+            height: 3px
+            margin: 0 7px
+
+        button::before
+            content: ''
+            width: 40px
+            height: 3px
+            background-color: $colorGrey3
+
+        li.slick-active
+            background-color: $colorPink1
+            button::before
+                background-color: $colorPink1

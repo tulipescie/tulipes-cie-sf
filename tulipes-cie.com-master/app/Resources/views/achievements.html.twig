@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% if projects_page is not null and projects_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(projects_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if projects_page is not null and projects_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(projects_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if projects_page is not null and projects_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(projects_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}achievements{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(projects_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(projects_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="addContent">
+        <div class="container">
+            <div class="addContent-img">
+                <span class="ico ico-tulipes-blazon">
+                    {% include 'svg/tulipes-blazon.svg.twig' with { 'color1': '#14b4c8', 'color2': '#412d64', 'color3': '#1437c8' } %}
+                </span>
+            </div>
+            <div class="addContent-text">
+                <h3>{{ translateAttribute(projects_page.explainTitle, app.request.locale)|raw|nl2br }}</h3>
+                {{ translateAttribute(projects_page.explainDesc, app.request.locale)|raw }}
+            </div>
+            <div id="top-projects"></div>
+        </div>
+    </section>
+
+    <section class="filter">
+        <div class="filter-disp_mobile">
+            <div class="filter-btn_group">
+                <button class="filter-btn_valid filter-show">{{ 'achievements.filter.disp'|trans }}</button>
+                <button class="filter-btn_cancel filter-reset">{{ 'achievements.filter.reset-mobile'|trans }}</button>
+            </div>
+        </div>
+
+        <form method="POST" class="filter-form">
+            <div class="filter-group-select">
+
+
+                <div class="filter-row filter-btn_mobile">
+                    <button class="filter-btn_cancel filter-cancel">{{ 'achievements.filter.cancel'|trans }}</button>
+                    <button class="filter-btn_valid filter-apply" type="submit">{{ 'achievements.filter.apply'|trans }}</button>
+                </div>
+
+                <div class="filter-row">
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Activity'} %}
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Thematic'} %}
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Award'} %}
+                </div>
+
+                <div class="filter-row">
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Customer'} %}
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Director'} %}
+                    {% include 'achievements-filter.html.twig' with {'filter_type': 'Tech'} %}
+                 </div>
+            </div>
+
+            <div class="filter-btn_desktop">
+                <input type="reset" class="filter-reset" value="{{ 'achievements.filter.reset'|trans }}">
+            </div>
+        </form>
+    </section>
+
+
+    <section class="projects">
+        <span class="project-routeUrl" style="display: none">{{ path('app_project', {'projectSlug': 'slug' }) }}</span>
+        <div class="container">
+        {% if not(projects) %}
+            <h3 class="no-projetcs animated slideUp">{{ 'achievements.no_project'|trans }}</h3>
+        {% else %}
+
+            {% set k = 0 %}
+            {% for project in projects %}
+                {% set j = (loop.index0 % 5) + 1 %}
+
+                {% if j == 1 %}
+                    {% set k = k + 1 %}
+                    <div class="projects-row view-more-tile animated slideUp animated--delay-{{ "%02d"|format(k) }}">
+                {% endif %}
+
+                    <a href="{{ path('app_project', {'projectSlug': project.slug }) }}" class="projects-tile">
+                        <img class="projects-img" src="{{ issetMediaImage(project.thumb1Image) }}"
+                             alt="{{ translateAttribute(project.thumb1Image.description, app.request.locale) }}">
+                        <span class="projects-name">{{ project.title|raw|nl2br }}</span>
+                    </a>
+
+                {% if j == 5 or loop.last %}</div>{% endif %}
+            {% endfor %}
+
+            <button class="btn btn-view-more">{{ 'view_more'|trans }}</button>
+
+        {% endif %}
+        </div>
+
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

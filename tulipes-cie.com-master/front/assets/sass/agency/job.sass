@@ -1,0 +1,132 @@
+.agency .job
+    width: 100%
+    background-color: $colorBlue1
+    color: $colorWhite
+    position: relative
+
+    &::before
+        content: ''
+        display: block
+        position: absolute
+        right: 0
+        bottom: 0
+        transform: translate(-30%, 0)
+        +backgroundImage("logo-tulipes.svg")
+        opacity: 0.1
+        width: 315px
+        height: 280px
+        +tabletMobile
+            background-image: url($assetsPathImg + "logo-tulipes-mobile.svg")
+            transform: translate(-20%, 0)
+            width: 145px
+            height: 125px
+
+    .container
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .title-section
+        color: $colorWhite
+        margin: 0
+
+    &-head
+        width: 830px
+        text-align: center
+        +tabletMobile
+            width: 100%
+
+    &-subTitle
+        @extend .RobotoItalic
+        font-size: 1.125em
+        margin-top: 1.75em
+        margin-bottom: 0
+        +tabletMobile
+            font-size: 0.75em
+            margin-top: 24px
+
+    &-list
+        margin-top: 80px
+        margin-left: 155px
+        display: flex
+        +tabletMobile
+            flex-direction: column
+            margin: 0
+
+    &-item
+        margin-bottom: 46px
+        +tabletMobile
+            margin: 0
+
+    &-numbers-col
+        +tabletMobile
+            display: flex
+            margin: 30px auto 16px
+
+    &-number
+        width: 95px
+        height: 95px
+        border-radius: 50%
+        background-color: $colorWhite
+        @extend .FabrikatBlackItalic
+        font-size: 3em
+        color: $colorBlue1
+        +alignTextColumn
+        text-align: center
+        position: relative
+
+        &:hover
+            background-color: $colorPink1
+            color: $colorWhite
+
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            width: 2px
+            height: 32px
+            background-color: $colorWhite
+            left: 50%
+            top: 100%
+            transform: translate(-50%, 7px)
+
+        &:last-of-type::before
+            content: none
+
+        +tabletMobile
+            font-size: 16px
+            width: 32px
+            height: 32px
+            margin: 0 7px
+            cursor: pointer
+
+            &::before
+                content: none
+
+            &__active
+                background-color: $colorPink1
+                color: $colorWhite
+
+
+    &-text
+        margin-left: 48px
+        margin-right: 180px
+        width: 653px
+        text-align: justify
+        +tabletMobile
+            margin: 0
+            width: 100%
+            text-align: center
+            display: none
+
+            &__active
+                display: block
+
+    &-title
+        @extend .FabrikatBlack
+        margin-top: 0
+        margin-bottom: 10px
+
+    &-describe
+        margin: 0
+

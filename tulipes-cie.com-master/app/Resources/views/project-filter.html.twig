@@ -1,0 +1,9 @@
+
+{% if project.getFiltersWithLabel(filter_type) is not empty %}
+    <div class="details-feature__group">
+        <p class="details-feature__title">{{ ('project.'~filter_type)|trans }}</p>
+        {% for filter in project.getFiltersWithLabel(filter_type) %}
+            <p>{{ translateAttribute(filter.name, app.request.locale) }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

@@ -1,0 +1,376 @@
+Project: Projet
+Team: L'équipe
+Contact: Contact
+Page: Page
+Vision: Notre vision
+Figure: Ce que nous aimons faire
+Number: Tulipes en chiffres
+Award: Récompenses
+
+entity_project: Projets
+entity_vision: Notre vision
+entity_figure: Ce que nous aimons faire
+entity_number: Tulipes en chiffres
+entity_award: Récompenses
+entity_filter: Gestion des filtres
+entity_filter_activity: Secteur
+entity_filter_thematic: Thématique
+entity_filter_award: Récompense
+entity_filter_tech: Format ou technologie
+entity_filter_year : Année
+entity_filter_customer: Clients
+entity_filter_director: Réalisateur
+entity_filter_interactif : Interactif / VR
+entity_activityfilter: Secteur
+entity_thematicfilter: Thématique
+entity_awardfilter: Récompense
+entity_techfilter: Format ou technologie
+entity_yearfilter : Année
+entity_customerfilter: Clients
+entity_directorfilter: Réalisateur
+entity_interactiffilter : Interactif / VR
+entity_activity_filter: Secteur
+entity_thematic_filter: Thématique
+entity_award_filter: Récompense
+entity_tech_filter: Format ou technologie
+entity_year_filter : Année
+entity_customer_filter: Clients
+entity_director_filter: Réalisateur
+entity_interactif_filter : Interactif / VR
+entity_team_member: Membres de l'équipe
+entity_contact: Messages
+entity_page_home: Accueil
+entity_page_agency: Agence
+entity_page_team: Équipe
+entity_page_projects: Réalisations
+entity_page_bulbe: Bulbe
+entity_page_news: Actualités
+entity_page_contact: Contact
+entity_page_legal_notice: Mentions légales
+entity_homepage: Page d'Accueil
+entity_agencypage: Page de l'Agence
+entity_teampage: Page de l'Équipe
+entity_projectspage: Page des Réalisations
+entity_bulbepage: Page Bulbe
+entity_newspage: Page des Actualités
+entity_contactpage: Page de Contact
+entity_legalnoticepage: Page des Mentions légales
+entity_newsletter_subscriber: Inscription à la newsletter
+
+
+breadcrumb.link_project_list: Liste des projets
+breadcrumb.link_abstract_filter_list: Liste des filtres des projets
+breadcrumb.link_abstract_page_list: Liste des pages
+breadcrumb.link_team_member_list: Liste des membres de l'équipe
+breadcrumb.link_contact_list: Liste des messages
+breadcrumb.link_home_page_list: Page d'accueil
+breadcrumb.link_agency_page_list: Page de l'agence
+breadcrumb.link_team_page_list: Page de l'équipe
+breadcrumb.link_projects_page_list: Page des réalisations
+breadcrumb.link_bulbe_page_list: Page des bulbes
+breadcrumb.link_news_page_list: Page des actualités
+breadcrumb.link_contact_page_list: Page de contact
+breadcrumb.link_legal_notice_page_list: Page des mentions légales
+breadcrumb.link_vision_list: Liste des visions
+breadcrumb.link_figure_list: Liste des blocs
+breadcrumb.link_number_list: Liste des chiffres
+breadcrumb.link_award_list: Liste des récompenses
+breadcrumb.link_newsletter_subscriber_list: Liste des inscriptions à la newsletter
+breadcrumb.link_activity_filter_list: Liste des secteurs d'activité
+breadcrumb.link_thematic_filter_list: Liste des thématiques
+breadcrumb.link_award_filter_list: Liste des récompenses
+breadcrumb.link_tech_filter_list: Liste des filtres des formats ou technologies
+breadcrumb.link_customer_filter_list: Liste des clients
+breadcrumb.link_director_filter_list: Liste des réalisateurs
+breadcrumb.link_video_bulbe_list: Liste des vidéos bulbes
+breadcrumb.link_favorite_bulbe_list: Liste des coups de cœurs
+breadcrumb.link_project_bulbe_list: Liste des vidéos bulbes
+
+breadcrumb.link_project_create: Ajout d'un nouveau projet
+breadcrumb.link_abstract_filter_create: Ajout d'un nouveau filtre de projet
+breadcrumb.link_abstract_page_create: Ajout d'une nouvelle page
+breadcrumb.link_team_member_create: Ajout d'un nouveau membre
+breadcrumb.link_contact_create: Ajout d'un nouveau message
+breadcrumb.link_home_page_create: Créations de la page de l'accueil
+breadcrumb.link_agency_page_create: Créations de la page de l'agence
+breadcrumb.link_team_page_create: Créations de la page de l'équipe
+breadcrumb.link_projects_page_create: Créations de la page des réalisations
+breadcrumb.link_bulbe_page_create: Créations de la page Bulbe
+breadcrumb.link_news_page_create: Créations de la page des actualités
+breadcrumb.link_contact_page_create: Créations de la page de contact
+breadcrumb.link_legal_notice_page_create: Créations des mentions légales
+breadcrumb.link_vision_create: Ajout d'une visions
+breadcrumb.link_figure_create: Ajout d'un bloc
+breadcrumb.link_number_create: Ajout d'une chiffres
+breadcrumb.link_award_create: Ajout d'une récompense
+breadcrumb.link_newsletter_subscriber_create: Ajout d'une nouvelle inscription au newsletter
+breadcrumb.link_activity_filter_create: Ajout d'un secteur d'activité
+breadcrumb.link_thematic_filter_create: Ajout d'une thématique
+breadcrumb.link_award_filter_create: Ajout d'une récompense
+breadcrumb.link_tech_filter_create: Ajout d'une format ou technologie
+breadcrumb.link_customer_filter_create: Ajout d'un client
+breadcrumb.link_director_filter_create: Ajout d'un réalisateur
+
+form.label_id: Id
+form.label_created_at: Date de création
+form.label_updated_at : Date de mise à jour
+form.label_title: Titre
+form.label_thumb1_image: "Image miniature 1 (Taille recommandée : largeur=627px, hauteur=390px)"
+form.label_thumb2_image: "Image miniature 2 (Taille recommandée : largeur=627px, hauteur=390px)"
+form.label_thumb3_image: "Image miniature 3 (Taille recommandée : largeur=627px, hauteur=390px)"
+form.label_thumb4_image: "Image miniature 4 (Taille recommandée : largeur=627px, hauteur=390px)"
+form.label_thumb5_image: "Image miniature 5 (Taille recommandée : largeur=627px, hauteur=390px)"
+form.label_is_promoted: Est en promotion
+form.label_is_interactive: Est interactive
+form.label_is_bublbe: Est en bulbe
+form.label_is_not_show: Ne pas afficher
+form.label_online_at: Date de mise en ligne
+form.label_first_name: Prénom
+form.label_last_name: Nom
+form.label_image: Image
+form.label_is_active: Est activé
+form.label_roll_image: Image en roll-over
+form.label_description: Description
+form.label_company: Société
+form.label_name: Nom
+list.label_name_admin: Nom
+form.label_email: Email
+form.label_telephone: Téléphone
+form.label_object: Objet
+form.label_message: Message
+form.label_header_image: "Image d'en-tête (Taille recommandée : largeur=1272px, hauteur=450px)"
+form.label_meta_title: Méta title
+form.label_meta_desc: Méta description
+form.label_meta_tag: Méta mots-clés
+form.label_color: Couleur titre
+form.label_video_url: Url de l'iframe de la vidéo
+form.label_content: Contenu
+form.label_filters_activity: Secteur(s)
+form.label_filters_thematic: Thématiques(s)
+form.label_filters_award: Récompense(s)
+form.label_filters_tech: Formats ou technologies
+form.label_filters_customer: Clients(s)
+form.label_filters_year: Année(s)
+form.label_filters_director: Réalisateur(s)
+form.label_filters_interactif: Intéractif / VR
+form.label_vision_title: Titre du bloc "Vision"
+form.label_figure_title: Titre du bloc "Ce que nous aimons faire"
+form.label_figure_description: Description du bloc "Ce que nous aimons faire"
+form.label_number_title: Titre du bloc "Tulipes en chiffre"
+form.label_customer_title: Titre du bloc "Clients"
+form.label_logo_cmjn_image: "Logo en couleur (Largeur max recommandée : 100px)"
+form.label_logo_black_image: "Logo en N&B (Largeur max recommandée : 100px)"
+form.label_total: Total
+form.label_position: Position
+form.label_history_title: Titre du bloc Histoire
+form.label_history_desc: Description du bloc Histoire
+form.label_team_title: Titre du bloc "Équipe"
+form.label_join_title: Titre du bloc "Recrutement"
+form.label_join_desc: Description du bloc "Recrutement"
+form.label_join_url_label: Texte du lien de recrutement
+form.label_explain_title: Titre du bloc explicatif
+form.label_explain_desc: Description du bloc explicatif
+form.label_promoted_project: Projet mise en avant
+form.label_is_in_footer: Ajouter dans le footer
+form.label_header_image_mobile: Image d'en-tête pour petit écran
+form.label_video_desktop_file1: Vidéo 1 pour grand écran
+form.label_video_mobile_file1: Vidéo 1 pour petit écran
+form.label_video_desktop_file2: Vidéo 2 pour grand écran
+form.label_video_mobile_file2: Vidéo 2 pour petit écran
+form.label_video_desktop_file3: Vidéo 3 pour grand écran
+form.label_video_mobile_file3: Vidéo 3 pour petit écran
+form.label_video_desktop_file4: Vidéo 4 pour grand écran
+form.label_video_mobile_file4: Vidéo 4 pour petit écran
+form.label_video_desktop_file5: Vidéo 5 pour grand écran
+form.label_video_mobile_file5: Vidéo 5 pour petit écran
+form.label_video_desktop_file6: Vidéo 6 pour grand écran
+form.label_video_mobile_file6: Vidéo 6 pour petit écran
+form.label_bloc_size: Taille du bloc
+form.label_bulbe_project: Projet en bulbe
+form.label_is_disp_in_project: Afficher aussi dans les projets
+form.label_favorite_bulbe_url: URL du coup de cœur
+form.label_video_bulbe_url: URL de l'iframe de la video bulbe
+form.label_video_bulbe_thumb: Image miniature de la vidéo
+
+list.label__action: Action
+list.label_id: Id
+list.label_created_at: Date de création
+list.label_updated_at : Date de mise à jour
+list.label_title: Titre
+list.label_thumb1_image: Image miniature 1
+list.label_thumb2_image: Image miniature 2
+list.label_thumb3_image: Image miniature 3
+list.label_thumb4_image: Image miniature 4
+list.label_thumb5_image: Image miniature 5
+list.label_is_promoted: Est en promotion
+list.label_is_interactive: Est interactive
+list.label_is_bublbe: Est en bulbe
+list.label_online_at: Date de mise en ligne
+list.label_first_name: Prénom
+list.label_last_name: Nom
+list.label_image: Image
+list.label_is_active: Est activé
+list.label_roll_image: Image en roll-over
+list.label_description: Description
+list.label_company: Société
+list.label_name: Nom
+list.label_email: Email
+list.label_telephone: Téléphone
+list.label_object: Objet
+list.label_message: Message
+list.label_header_image: Image d'en-tête
+list.label_meta_title: Méta title
+list.label_meta_desc: Méta description
+list.label_meta_tag: Méta mots-clés
+list.label_color: Couleur de l'en-tête
+list.label_video_url: Url de l'iframe de la vidéo
+list.label_content: Contenu
+list.label_filters_activity: Secteur(s)
+list.label_filters_thematic: Thématiques(s)
+list.label_filters_award: Récompense(s)
+list.label_filters_tech: Formats ou technologies
+list.label_filters_customer: Clients(s)
+list.label_filters_year: Année(s)
+list.label_filters_director: Réalisateur(s)
+list.label_filters_interactif: Intéractif / VR
+list.label_vision_title: Titre du bloc "Notre vision"
+list.label_figure_title: Titre du bloc "Ce que nous aimons faire"
+list.label_logo_cmjn_image: Logo en couleur
+list.label_logo_black_image: Logo en N&B
+list.label_total: Total
+list.label_position: Position
+list.label_history_title: Titre du bloc "Histoire"
+list.label_history_desc: Description du bloc "Histoire"
+list.label_team_title: Titre du bloc "Équipe"
+list.label_join_title: Titre du bloc "Recrutement"
+list.label_join_desc: Description du bloc "Recrutement"
+list.label_join_url_label: Texte du lien de recrutement
+list.label_explain_title: Titre du bloc explicatif
+list.label_explain_desc: Description du bloc explicatif
+list.label_title_admin: Titre
+list.label_promoted_project: Projet mise en avant
+list.label_is_in_footer: Ajouter dans le footer
+list.label_video_desktop_file: Vidéo de présentation pour grand écran
+list.label_video_mobile_file: Vidéo de présentation pour petit écran
+list.label_header_image_mobile: Image d'en-tête pour petit écran
+list.label_tilte_admin: Titre
+list.label_bloc_size: Taille du bloc
+list.label_bulbe_project: Projet en bulbe
+list.label_is_disp_in_project: Afficher aussi dans les projets
+list.label_favorite_bulbe_url: URL du coup de cœur
+list.label_video_bulbe_url: URL de l'iframe de la video bulbe
+list.label_video_bulbe_thumb: Image miniature de la vidéo
+list.label_is_not_show: Ne pas afficher
+list.label_title_project: Titre
+
+show.label__action: Action
+show.label_id: Id
+show.label_created_at: Date de création
+show.label_updated_at : Date de mise à jour
+show.label_title: Titre
+show.label_thumb1_image: Image miniature 1
+show.label_thumb2_image: Image miniature 2
+show.label_thumb3_image: Image miniature 3
+show.label_thumb4_image: Image miniature 4
+show.label_thumb5_image: Image miniature 5
+show.label_is_promoted: Est en promotion
+show.label_is_interactive: Est interactive
+show.label_is_bublbe: Est en bulbe
+show.label_online_at: Date de mise en ligne
+show.label_first_name: Prénom
+show.label_last_name: Nom
+show.label_image: Image
+show.label_is_active: Est activé
+show.label_roll_image: Image en roll-over
+show.label_description: Description
+show.label_company: Société
+show.label_name: Nom
+show.label_email: Email
+show.label_telephone: Téléphone
+show.label_object: Objet
+show.label_message: Message
+show.label_header_image: Image d'en-tête
+show.label_meta_title: Méta title
+show.label_meta_desc: Méta description
+show.label_meta_tag: Méta mots-clés
+show.label_color: Couleur de l'en-tête
+show.label_video_url: Url de l'iframe de la vidéo
+show.label_content: Contenu
+show.label_filters_activity: Secteur(s)
+show.label_filters_thematic: Thématiques(s)
+show.label_filters_award: Récompense(s)
+show.label_filters_tech: Formats ou technologies
+show.label_filters_customer: Clients(s)
+show.label_filters_year: Année(s)
+show.label_filters_director: Réalisateur(s)
+show.label_filters_interactif: Intéractif / VR
+show.label_vision_title: Titre du bloc "Nos vision"
+show.label_figure_title: Titre du bloc "Figure"
+show.label_logo_cmjn_image: Logo en couleur
+show.label_logo_black_image: Logo en N&B
+show.label_total: Total
+show.label_position: Position
+show.label_history_title: Titre du bloc "Histoire"
+show.label_history_desc: Description du bloc "Histoire"
+show.label_team_title: Titre du bloc "Équipe"
+show.label_join_title: Titre du bloc "Recrutement"
+show.label_join_desc: Description du bloc "Recrutement"
+show.label_join_url_label: Texte du lien de recrutement
+show.label_explain_title: Titre du bloc explicatif
+show.label_explain_desc: Description du bloc explicatif
+show.label_promoted_project: Projet mise en avant
+show.label_is_in_footer: Ajouter dans le footer
+show.label_video_desktop_file: Vidéo de présentation pour grand écran
+show.label_video_mobile_file: Vidéo de présentation pour petit écran
+show.label_header_image_mobile: Image d'en-tête pour petit écran
+show.label_bloc_size: Taille du bloc
+show.label_bulbe_project: Projet en bulbe
+show.label_is_disp_in_project: Afficher aussi dans les projets
+show.label_favorite_bulbe_url: URL du coup de cœur
+show.label_video_bulbe_url: URL de l'iframe de la video bulbe
+show.label_video_bulbe_thumb: Image miniature de la vidéo
+show.label_is_not_show: Ne pas afficher
+show.label_file_original_name: Pièce jointe
+
+filter.label_id: Id
+filter.label_created_at: Date de création
+filter.label_updated_at : Date de mise à jour
+filter.label_title: Titre
+filter.label_thumb1_image: Image miniature 1
+filter.label_thumb2_image: Image miniature 2
+filter.label_thumb3_image: Image miniature 3
+filter.label_thumb4_image: Image miniature 4
+filter.label_thumb5_image: Image miniature 5
+filter.label_is_promoted: Est en promotion
+filter.label_is_interactive: Est interactive
+filter.label_is_bublbe: Est en bulbe
+filter.label_online_at: Date de mise en ligne
+filter.label_first_name: Prénom
+filter.label_last_name: Nom
+filter.label_image: Image
+filter.label_is_active: Est activé
+filter.label_roll_image: Image en roll-over
+filter.label_description: Description
+filter.label_company: Société
+filter.label_name: Nom
+filter.label_email: Email
+filter.label_telephone: Téléphone
+filter.label_object: Objet
+filter.label_message: Message
+filter.label_header_image: Image d'en-tête
+filter.label_meta_desc: Méta description
+filter.label_meta_tag: Méta mots-clés
+filter.label_color: Couleur de l'en-tête
+filter.label_video_url: Url de l'iframe de la vidéo
+filter.label_content: Contenu
+filter.label_filters_activity: Secteur(s)
+filter.label_filters_thematic: Thématiques(s)
+filter.label_filters_award: Récompense(s)
+filter.label_filters_tech: Formats ou technologies
+filter.label_filters_customer: Clients(s)
+filter.label_filters_year: Année(s)
+filter.label_filters_director: Réalisateur(s)
+filter.label_filters_interactif: Intéractif / VR
+
+instagram_access_token: Générer token d'accées d'Instagram
+linkedin_access_token: Générer token d'accées de LinkedIn

@@ -1,0 +1,19 @@
+.spinner
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 70px
+	height: 70px
+
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		width: 70px
+		height: 70px
+		background-image: url($assetsPathImg + 'spinner.svg')
+		animation-name: rotate
+		animation-duration: 0.6s
+		animation-timing-function: linear
+		animation-iteration-count: infinite

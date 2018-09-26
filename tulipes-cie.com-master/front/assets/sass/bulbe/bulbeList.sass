@@ -1,0 +1,207 @@
+$tileGap: 4px
+
+.bulbe .bulbeList
+  color: $colorWhite
+  @extend .RobotoRegular
+  font-size: 0.875em
+
+  .container
+    width: 1370px
+    display: flex
+    padding: $tileGap
+
+
+  &-tile
+    width: 100%
+    margin: $tileGap
+    position: relative
+    overflow: hidden
+
+  &-col
+    display: flex
+    flex-direction: column
+
+  &-small .bulbeList-tile
+    width: 330px
+    height: 208px
+
+  &-medium .bulbeList-tile
+    width: 445px
+    height: 280px
+
+  &-big .bulbeList-tile
+    width: 558px
+    height: 424px
+
+  &-imgBlock
+    width: 100%
+    height: 100%
+
+  &-img
+    min-width: 100%
+    min-height: 100%
+    +imageAdmin
+
+  .slideshow
+    overflow: hidden
+
+    &-list
+      width: 100%
+      height: 100%
+      padding: 0
+      margin: 0
+      list-style: none
+      position: relative
+
+    &-slide
+      width: 100%
+      height: 100%
+      position: absolute
+      left: 0
+      top: 0
+      opacity: 0
+      transition: opacity 0.6s ease
+
+      &--active
+        opacity: 1
+
+  &-textBlock
+    position: absolute
+    width: 100%
+    transform: translateY(100%)
+    transition: transform 0.4s ease
+
+  &-tile
+    &:hover
+      .bulbeList-textBlock
+        transform: translateY(0)
+
+  &-project
+    .bulbeList-textBlock
+      height: 100px
+      padding: 15px 40px 15px 30px
+      background-color: rgba(89, 128, 13, 0.7)
+      bottom: 0
+      line-height: 1.3
+      display: block
+
+    &--title
+      margin: 0
+      @extend .RobotoRegular
+      font-size: 1.25em
+      font-weight: bold
+      text-transform: uppercase
+
+    &--describe
+      margin: 0
+
+  &-favorite
+    .bulbeList-textBlock
+      height: 100%
+      +backgroundImage("bulbe/bg-favorite-bulbe.png", cover, right bottom)
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      left: 0
+      top: 0
+      text-align: center
+      padding: 0 35px
+      display: flex
+
+    &--title
+      align-items: center
+      display: flex
+      @extend .FabrikatBlack
+      font-size: 2.18em
+      margin-top: 0
+      margin-bottom: 23px
+
+      .ico
+        margin-right: 20px
+
+    &--describe
+      margin: 0
+      font-weight: bold
+
+  &-video
+
+    &--foreground
+      width: 100%
+      height: 100%
+      display: block
+      position: relative
+
+    &--iframe
+      display: none
+      position: fixed
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: rgba(0, 0, 0, 0.6)
+      z-index: 1
+
+      iframe
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 880px
+        height: 495px
+
+    .ico-player
+      width: 65px
+      height: 65px
+      border: 5px solid $colorWhite
+      border-radius: 50%
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      display: none
+
+      &::before
+        content: ''
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 12px 0 12px 20.8px
+        border-color: transparent transparent transparent $colorWhite
+        //border-radius: 3px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        margin-left: 2px
+
+    &:hover
+      .ico-player
+        display: block
+        animation: fadeIn .4s
+
+  &-page
+    padding: 35px 32px 35px 38px
+    background-color: #931992
+
+    &--title
+      @extend .FabrikatRegular
+      font-size: 2.875em
+      margin-bottom: 6px
+      margin-top: 0
+
+    &--describe
+      line-height: 1.6
+      h1, h2, h3, h4, h5, h6, p
+        margin: 0
+
+    &::before
+        content: ''
+        display: block
+        position: absolute
+        right: 0
+        bottom: 0
+        +backgroundImage("bulbe/logo-tulipes.png")
+        opacity: 0.07
+        width: 200px
+        height: 200px
+        margin-right: 35px

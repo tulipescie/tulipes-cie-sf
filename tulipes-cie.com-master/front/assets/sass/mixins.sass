@@ -1,0 +1,65 @@
+@mixin clearBoth
+    &::after
+    content: ''
+    display: block
+    clear: both
+
+@mixin backgroundImage($path, $size: auto, $position: left top, $repeat: false)
+    background-image: url($assetsPathImg + $path)
+
+    @if $repeat == false
+        background-repeat: no-repeat
+
+    background-position: $position
+    background-size: $size
+
+@mixin alignTextColumn()
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+@mixin titleTulipesPage
+    @extend .FabrikatBlack
+    font-size: 4em
+    color: $colorWhite
+    text-transform: uppercase
+    text-align: center
+    +tabletMobile
+        font-size: 1.5em
+
+@mixin imageAdmin
+    max-height: 100%
+    max-width: 100%
+    width: auto
+    height: auto
+    overflow: hidden
+    object-fit: cover
+
+
+@mixin mobile
+    @media (max-width: #{$small - 1px})
+        @content
+
+@mixin smallMobile
+    @media (max-width: #{$extra-small - 1})
+        @content
+
+@mixin mediumMobile
+    @media (min-width: #{$extra-small}) and (max-width: #{$small - 1px})
+        @content
+
+@mixin tablet
+    @media (min-width: #{$small}) and (max-width: #{$medium - 1px})
+        @content
+
+@mixin tabletMobile
+    @media (max-width: #{$medium - 1px})
+        @content
+
+@mixin mediumDevice
+    @media (min-width: #{$medium}) and (max-width: #{$large - 1px})
+        @content
+
+@mixin desktop
+    @media (min-width: #{$medium})
+        @content

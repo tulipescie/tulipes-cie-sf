@@ -1,0 +1,22 @@
+{% if (isInstanceof(bulbe, "VideoBulbe")) %}
+    <div class="bulbeList-tile bulbeList-video animated slideUp">
+        <a href="#video-{{ bulbe.id }}" class="bulbeList-video--foreground bulbe-video">
+            <span class="bulbeList-imgBlock">
+                {% if bulbe.videoBulbeThumb %}
+                    <img class="bulbeList-img"
+                         src="{{ issetMediaImage(bulbe.videoBulbeThumb) }}"
+                         alt="{{ translateAttribute(bulbe.videoBulbeThumb.description, app.request.locale) }}"
+                    >
+                {% endif %}
+            </span>
+
+            <span class="ico-player"></span>
+        </a>
+
+        <div class="bulbeList-video--iframe" id="video-{{ bulbe.id }}">
+            <iframe src="{{ bulbe.videoBulbeUrl }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+{% endif %}

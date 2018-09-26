@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% if bulbe_page is not null and bulbe_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(bulbe_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if bulbe_page is not null and bulbe_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(bulbe_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if bulbe_page is not null and bulbe_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(bulbe_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}bulbe{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(bulbe_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(bulbe_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="bulbeList">
+        <div class="container">
+            <div class="bulbeList-col bulbeList-medium">
+                {% for bulbe in mediumBulbes %}
+                    {% include 'bulbe/bulbePage.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/projectBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/favoriteBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/videoBulbe.html.twig' with { 'bulbe': bulbe } %}
+                {% endfor %}
+            </div>
+            <div class="bulbeList-col bulbeList-big">
+                {% for bulbe in bigBulbes %}
+                    {% include 'bulbe/projectBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/favoriteBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/videoBulbe.html.twig' with { 'bulbe': bulbe } %}
+                {% endfor %}
+            </div>
+            <div class="bulbeList-col bulbeList-small">
+                {% for bulbe in smallBulbes %}
+                    {% include 'bulbe/projectBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/favoriteBulbe.html.twig' with { 'bulbe': bulbe } %}
+                    {% include 'bulbe/videoBulbe.html.twig' with { 'bulbe': bulbe } %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {#<button class="btn btn-view-more">{{ 'view_more'|trans }}</button>#}
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+.agency .customers
+    width: 100%
+    color: $colorWhite
+
+    .container
+        position: relative
+        text-align: center
+
+    &-slider
+        margin: 45px auto 0
+        width: 960px
+        +tabletMobile
+            width: 90vw
+
+    &-logo
+        max-width: 100px
+        height: auto
+        overflow: hidden
+        margin: auto
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        cursor: pointer
+        +tabletMobile
+            max-width: 70px
+
+        &-cmjn
+            display: none
+
+        &-black
+            display: block
+
+    &-slide
+        width: 192px
+        height: 120px
+        text-align: center
+        position: relative
+        transition: all .3s ease
+        +tabletMobile
+            width: 110px
+            height: 85px
+
+
+        &:hover
+            > .customers-logo-black
+                display: none
+
+            > .customers-logo-cmjn
+                display: block
+                transform: translate(-50%, -50%) scale(1.2)
+    &-slide.slick-center
+        //+tabletMobile
+        //    > .customers-logo-black
+        //        display: none
+        //
+        //    > .customers-logo-cmjn
+        //        display: block
+        //        transform: translate(-50%, -50%) scale(1.2)
+
+    .slider-nav
+        top: calc(50% + 60px)
+        transform: translate(-50%, calc(-(50% + 60px)))
+        +tabletMobile
+            display: none

@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% if home_page is not null and home_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(home_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if home_page is not null and home_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(home_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if home_page is not null and home_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(home_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}home{% endblock %}
+
+{% block body %}
+    <div class="home-video home-video__desktopList">
+        {% for videoNumber in videoDesktopNumbers %}
+            <video
+                    class="home-video__desktop {% if loop.index == 1 %}home-video--active{% endif %}"
+                    poster="{{ issetMediaImage(home_page.headerImage) }}"
+                    playsinline
+                    {% if loop.index == 1 %}
+                        autoplay
+                    {% else %}
+                        preload="auto"
+                    {% endif %}
+            >
+                <source src="{{ vich_uploader_asset(home_page, 'videoDesktopFile'~videoNumber ) }}"
+                        type="video/mp4">
+            </video>
+        {% endfor %}
+    </div>
+
+    <div class="home-video home-video__mobileList">
+        {% for videoNumber in videosMobileNumbers %}
+            <video
+                    class="home-video__mobile {% if loop.index == 1 %}home-video--active{% endif %}"
+                    poster="{{ issetMediaImage(home_page.headerImage) }}"
+                    playsinline
+                    muted
+                    {% if loop.index == 1 %}
+                        autoplay
+                    {% else %}
+                        preload="auto"
+                    {% endif %}
+            >
+                <source src="{{ vich_uploader_asset(home_page, 'videoMobileFile'~videoNumber) }}"
+                        type="video/mp4">
+            </video>
+        {% endfor %}
+
+    </div>
+
+    <div class="home-container">
+        {% include 'navbar.html.twig' %}
+        <div class="home-bloc_title">
+            {#<h1 class="home-title">{{ translateAttribute(home_page.title, app.request.locale)|raw|nl2br }}</h1>#}
+        </div>
+
+        <div class="spinner">
+
+        </div>
+
+        <footer class="home-footer">
+            <div class="home-footer-left">
+                <h1 class="home-footer-title">
+                    {{ translateAttribute(home_page.title, app.request.locale)|raw|nl2br }}
+                </h1>
+            </div>
+
+
+            <div class="home-footer-right">
+
+                <div class="home-modal_newsletter">
+                    <a class="open-modal-newsletter" href="#">{{ 'home.newsletter.txtOpen'|trans }}</a>
+
+                    <div class="modal-newletter">
+                        <div class="modal-newletter__row">
+                            <span class="close-modal-newsletter">&times;</span>
+
+                            <div class="modal-newletter__content">
+                                <h2 class="modal-newletter__title">
+                                    {{ 'home.newsletter.title'|trans }}
+                                </h2>
+                                <p class="modal-newletter__text">{{ 'home.newsletter.text'|trans }}</p>
+
+                                <p class="newsletter-message modal-newletter__error newsletter-email_no_valide">{{ 'home.newsletter.email_no_valide'|trans }}</p>
+                                <p class="newsletter-message modal-newletter__success newsletter-email_valide">{{ 'home.newsletter.email_valide'|trans }}</p>
+                                <p class="newsletter-message modal-newletter__error newsletter-error">{{ 'home.newsletter.error'|trans }}</p>
+                                <p class="newsletter-message modal-newletter__success newsletter-success">{{ 'home.newsletter.success'|trans }}</p>
+
+                                {{ form_start(form, {
+                                    'action': path('ajax_newsletter'),
+                                    'attr': {'class': 'newsletter-form'}
+                                }) }}
+                                {{ form_errors(form) }}
+
+                                {{ form_errors(form.email) }}
+                                {{ form_widget(form.email, {
+                                    'attr': {
+                                        'placeholder': 'home.newsletter.plachoder_email'|trans,
+                                        'class': 'newsletter-email'
+                                    }
+                                }) }}
+
+                                {{ form_widget(form.save, {
+                                    'label': 'home.newsletter.submit'|trans,
+                                    'attr': {'class': 'newsletter-submit'}
+                                }) }}
+
+                                {{ form_rest(form) }}
+                                {{ form_end(form) }}
+
+
+                                <div class="modal-newletter--legal">
+                                    <p>
+                                        Les informations recueillies vous concernant font l’objet d’un traitement destiné à : L.C.C.D. - Tulipes et Cie.
+                                    </p>
+                                    <p>
+                                        Pour la finalité suivante : Envoi périodique, par email, de la Newsletter de Tulipes.
+                                    </p>
+                                    <p>
+                                        Les destinataires de ces données sont : L.C.C.D - Service Communication.
+                                    </p>
+                                    <p>
+                                        La durée de conservation des données est limité à la durée de votre consentement.
+                                    </p>
+                                    <p>
+                                        Vous bénéficiez d’un droit d’accès, de rectification, de portabilité, d’effacement de celles-ci ou une limitation du traitement.
+                                    </p>
+                                    <p>
+                                        Vous pouvez vous opposer au traitement des données vous concernant et disposez du droit de retirer votre consentement à tout moment en vous adressant à : L.C.C.D. - Data Protection Officer - 75, rue des Plantes 75018 Paris ou par email : dpo@tulipes-cie.com
+                                    </p>
+                                    <p>
+                                        Vous avez la possibilité d’introduire une réclamation auprès d’une autorité de contrôle.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="modal-newletter__confirmation">
+                                <h3 class="modal-newletter__txtConfirmation">{{ 'home.newsletter.success'|trans }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% include 'social-icons.html.twig' %}
+            </div>
+        </footer>
+
+    </div>
+{% endblock %}

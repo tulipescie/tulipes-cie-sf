@@ -1,0 +1,110 @@
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+
+{% set newletterForm = newletterForm() %}
+
+<footer class="footer">
+    <section class="footer-section sitemap">
+        <div class="sitemap-col">
+            <p class="sitemap-col-title">{{ 'footer.tulipes'|trans }}</p>
+            <ul class="sitemap-col-list">
+                <li>{{ 'footer.adress'|trans }}</li>
+                <li>{{ 'footer.cp_city'|trans }}</li>
+                <li>{{ 'footer.phone'|trans }}</li>
+                <li><br></li>
+                <li><a href="{{ path('app_contact') }}{{ locale }}/{{ 'slug.contact'|trans }}">
+                        {{ 'footer.contact_form_link'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_contact') }}{{ locale }}/{{ 'slug.contact'|trans }}#recruitment">
+                        {{ 'footer.recruitment_link'|trans }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sitemap-col">
+            <p class="sitemap-col-title">{{ 'footer.tulipes'|trans }}</p>
+            <ul class="sitemap-col-list">
+                <li><a href="{{ url('app_agency') }}{{ locale }}/{{ 'slug.agency'|trans }}"> {{ 'footer.agency'|trans }}</a></li>
+                <li><a href="{{ url('app_team') }}{{ locale }}/{{ 'slug.team'|trans }}"> {{ 'footer.team'|trans }}</a></li>
+                <li><a href="{{ url('app_achievements') }}{{ locale }}/{{ 'slug.achievements'|trans }}"> {{ 'footer.achievement'|trans }}</a></li>
+                <li><a href="{{ url('app_bulbe') }}{{ locale }}/{{ 'slug.bulbe'|trans }}"> {{ 'footer.lab'|trans }}</a></li>
+                <li><a href="{{ url('app_news') }}{{ locale }}/{{ 'slug.news'|trans }}"> {{ 'footer.news'|trans }}</a></li>
+            </ul>
+        </div>
+        <div class="sitemap-col">
+            <p class="sitemap-col-title">{{ 'footer.achievement'|trans }}</p>
+            <ul class="sitemap-col-list">
+            {% for project in getFistFiveProjects() %}
+                <li>
+                    <a href="{{ path('app_project', {'projectSlug': project.slug }) }}">
+                        <span>{{ project.title }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="sitemap-col">
+            <p class="sitemap-col-title">{{ 'footer.techno'|trans }}</p>
+            <ul class="sitemap-col-list">
+            {% for tech in getFavoriteTech() %}
+                <li>
+                    <a href="{{ url('app_achievements') }}{{ locale }}/{{ 'slug.achievements'|trans }}#filters:tech={{ tech.id }}">
+                        <span>{{ translateAttribute(tech.name, app.request.locale) }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="sitemap-col sitemap-newsletter">
+            <p class="sitemap-col-title">{{ 'footer.newsletter_title'|trans }}</p>
+
+            <p class="newsletter-message sitemap-newsletter__error newsletter-error">{{ 'home.newsletter.error'|trans }}</p>
+            <p class="newsletter-message sitemap-newsletter__success newsletter-success">{{ 'home.newsletter.success'|trans }}</p>
+
+            {{ form_start(newletterForm, {
+                'action': path('ajax_newsletter'),
+                'attr': {'class': 'sitemap-newsletter__form newsletter-form'}
+            }) }}
+            {{ form_errors(newletterForm) }}
+
+            {{ form_errors(newletterForm.email) }}
+            {{ form_widget(newletterForm.email, {
+                'attr': {
+                    'placeholder': 'footer.newsletter_placeholder'|trans,
+                    'class': 'newsletter-email'
+                }
+            }) }}
+
+            {{ form_widget(newletterForm.save, {
+                'label': 'footer.newsletter_submit'|trans,
+                'attr': {'class': 'newsletter-submit'}
+            }) }}
+
+            {{ form_rest(newletterForm) }}
+            {{ form_end(newletterForm) }}
+
+            {% include 'social-icons.html.twig' %}
+        </div>
+    </section>
+    <hr class="line-section">
+    <section class="footer-section credits">
+        <div class="credits-left"><p class="credits-copyright">&copy; Tulipes 2017</p></div>
+        <div class="credits-right">
+            <p class="credits-links">
+                {#<a href="#">{{ 'footer.cookie'|trans }}</a>#}
+                {#<span>|</span>#}
+                <a href="{{ url('app_legal_mentions') }}{{ locale }}/{{ 'slug.legal_mentions'|trans }}">
+                    {{ 'footer.legal_mentions'|trans }}
+                </a>
+                {#<span>|</span>#}
+                {#<a href="#">{{ 'footer.credits'|trans }}</a>#}
+            </p>
+        </div>
+    </section>
+
+</footer>

@@ -1,0 +1,34 @@
+{% extends "Email/base_layout.email.html.twig" %}
+
+{% block subject %}
+    {{ title }}
+{% endblock %}
+
+{% block email_content %}
+    <tr>
+        <td valign="middle" style="padding: 0 0 0 66px;">
+            <h1 style="margin: 22px 0;font-size: 20px;margin: 0;white-space:nowrap;line-height: 1.2;color: #333;">
+                {{ title }}
+            </h1>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="padding: 0 0 0 66px;">
+            <p style="margin: 22px 0;font-size: 16px;line-height: 22px;">
+                Un message vous a été envoyé depuis le site:<br>
+                <table>
+                    {% for field in ['company', 'name', 'email', 'telephone', 'message'] %}
+                    <tr>
+                        {% set trans_key = 'contact.form.' ~ field %}
+                        <td>{{ trans_key|trans }}:</td>
+                        <td>{{ attribute(contact, field) }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                <a href="{{ bo_uri }}" title="BO">Connectez-vous au back-office</a> pour plus de détails.
+            </p>
+        </td>
+    </tr>
+{% endblock %}

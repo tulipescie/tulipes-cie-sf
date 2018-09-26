@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% if contact_page is not null and contact_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(contact_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if contact_page is not null and contact_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(contact_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if contact_page is not null and contact_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(contact_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}contact{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(contact_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(contact_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="formContact">
+        <div class="container">
+            <div class="formContact-left animated fadeSlideLtoR">
+                <div class="formContact-block">
+                    <span class="ico ico-tulipes-blazon animated slideUp animated--delay-01">
+                        {% include 'svg/tulipes-blazon.svg.twig' with { 'color1': '#E54B1E', 'color2': '#065069', 'color3': '#FED500' } %}
+                    </span>
+                    <span class="ico ico-tulipes-names animated slideUp animated--delay-02">
+                        {% include 'svg/tulipes-name.svg.twig' with { 'color': '#FFF' } %}
+                    </span>
+                    <p class="formContact-adress animated slideUp animated--delay-03">{{ 'contact.adress'|trans }}</p>
+                    <p class="formContact-adress animated slideUp animated--delay-04">{{ 'contact.cp_city'|trans }}</p>
+                    <p class="formContact-adress animated slideUp animated--delay-05">{{ 'contact.phone'|trans }}</p>
+                    <p class="formContact-textSup animated slideUp animated--delay-06">{{ 'contact.text'|trans }}</p>
+                    <p class="formContact-textSupSup animated slideUp animated--delay-07">{{ 'contact.contact_us'|trans }}</p>
+                </div>
+            </div>
+            <div class="formContact-right">
+                {% include 'form/contact.html.twig' %}
+                <p class="formContact-mandatory animated fadeSlideRtoL animated--delay-07">*{{ 'contact.form.mandatory'|trans }}</p>
+
+                <p class="formContact-response"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="map animated fadeIn">
+        <div id="googleMap"></div>
+    </section>
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {#<script src='https://www.google.com/recaptcha/api.js'></script>#}
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('form-recaptcha', {
+          'sitekey' : '{{ recaptcha.key }}'
+        });
+      };
+    </script>
+
+    <script>
+
+      var marker;
+      function myMap() {
+        var TulipesLatLng = {lat: 48.8268551, lng: 2.3184037};
+
+        var map=new google.maps.Map(document.getElementById("googleMap"), {
+          zoom:12,
+          center: TulipesLatLng,
+        });
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: TulipesLatLng,
+          animation: google.maps.Animation.DROP,
+        });
+
+        marker.addListener('click', toggleBounce);
+      }
+
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXvUTPRk68bTSGPiGWuP0KlPzpTEgzLLo&callback=myMap"></script>
+{% endblock %}

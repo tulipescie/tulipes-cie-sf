@@ -1,0 +1,120 @@
+$widthBigTile: 541px
+$heightBigTile: 338px
+$widthTile: 270px
+$heightTile: 168px
+$tileGap: 2px
+
+.achievements .projects
+
+    .container
+        +tabletMobile
+            padding-top: 15px
+
+    &-row
+        height: $heightBigTile
+        position: relative
+        margin-bottom: $tileGap
+
+    +desktop
+        &:nth-child(odd) .projects-tile
+            &:nth-child(1)
+                left: 0
+                top: 0
+                width: $widthBigTile
+                height: $heightBigTile
+
+            &:nth-child(2), &:nth-child(4)
+                left: $widthBigTile + $tileGap
+
+            &:nth-child(1), &:nth-child(2), &:nth-child(3)
+                top: 0
+
+            &:nth-child(4), &:nth-child(5)
+                top: $heightTile+ $tileGap
+
+            &:nth-child(3), &:nth-child(5)
+                left: $widthBigTile + ($tileGap * 2) + $widthTile
+
+        &:nth-child(even) .projects-tile
+            &:nth-child(1), &:nth-child(3)
+                left: 0
+
+            &:nth-child(2), &:nth-child(4)
+                left: $widthTile + $tileGap
+
+            &:nth-child(1), &:nth-child(2), &:nth-child(5)
+                top: 0
+
+            &:nth-child(3), &:nth-child(4)
+                top: $heightTile + $tileGap
+
+            &:nth-child(5)
+                right: 0
+                top: 0
+                width: $widthBigTile
+                height: $heightBigTile
+
+        &-tile
+            width: $widthTile
+            height: $heightTile
+            margin-right: $tileGap
+            margin-bottom: $tileGap
+
+    &-tile
+        cursor: pointer
+        display: block
+        position: absolute
+
+        > *
+            backface-visibility: hidden
+            transition: all 0.6s ease
+            transform-style: preserve-3d
+
+        &:hover::before
+            content: ''
+            display: block
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            top: 0
+            background-color: rgba(20, 180, 200, 0.9)
+            z-index: 1
+
+    &-img
+        min-width: 100%
+        min-height: 100%
+        max-width: 100%
+        max-height: 100%
+        height: auto
+        overflow: hidden
+        object-fit: cover
+
+    &-name
+        //display: none
+        position: absolute
+        left: 50%
+        top: 50%
+        width: 60%
+        @extend .FabrikatBold
+        font-size: 1.5em
+        text-transform: uppercase
+        text-align: center
+        color: $colorWhite
+        z-index: 1
+        transform: translate(-50%, -50%) rotateY(-179deg)
+        +tablet
+            font-size: 1em
+        +mobile
+            font-size: 0.85em
+
+    &-tile:hover
+        .projects-img
+            position: absolute
+            transform: rotateY(180deg)
+
+        .projects-name
+            transform: translate(-50%, -50%) rotateY(0)
+
+    .btn-view-more
+        margin-top: 18px

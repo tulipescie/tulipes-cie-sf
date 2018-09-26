@@ -1,0 +1,41 @@
+parameters:
+    caramia_media.entity_class: AppBundle\Entity\Media
+    caramia_media.admin_class: AppBundle\Admin\MediaAdmin
+
+services:
+    app.twig.extension:
+        class: AppBundle\Twig\AppExtension
+        tags:
+            - { name: twig.extension }
+        calls:
+          - ['setContainer', ['@service_container']]
+
+    ## Mail
+    app.mailer:
+        class: AppBundle\Utils\Mailer
+        arguments: ["@swiftmailer.mailer", "@router", "@templating", "@translator"]
+        calls:
+            - ['setAdminEmails', ['%mailer_admin_string%']]
+
+    import.csvtoarray:
+        class: AppBundle\Services\ConvertCsvToArray
+
+    app.service.project:
+        class: AppBundle\Services\ProjectService
+        calls:
+          - ['setContainer', ['@service_container']]
+
+    project.listener:
+        class: AppBundle\EventListener\ProjectCreateListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, lazy: true }
+
+    project.bulbe.listener:
+        class: AppBundle\EventListener\ProjectBulbeCreateListener
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, lazy: true }
+
+    project.bulbe.listener2:
+        class: AppBundle\EventListener\ProjectBulbeCreateListener
+        tags:
+            - { name: doctrine.event_listener, event: postUpdate, lazy: true }

@@ -1,0 +1,53 @@
+.addContent
+    width: 100%
+    height: auto
+    background-color: $colorGrey4
+
+    .container
+        width: 870px
+        display: flex
+        align-items: center
+        +tabletMobile
+            width: $widthContainerMobile
+            flex-direction: column
+
+
+    &-img
+        +alignTextColumn
+        justify-self: flex-end
+
+        .ico
+            width: 130px
+            height: 200px
+
+            svg
+                width: 100%
+
+
+        +tabletMobile
+            justify-self: center
+            .ico
+                width: 55px
+                height: 80px
+
+    &-text
+        width: 645px
+        color: $colorBlack1
+        margin-left: 95px
+        text-align: justify
+        +tabletMobile
+            width: 100%
+            color: $colorGrey6
+            text-align: center
+            margin-left: 0
+            margin-top: 12px
+
+        h2, h3, h4, h5
+            @extend .FabrikatBlack
+            text-transform: uppercase
+            margin: 0 0 18px
+
+        p
+            @extend .RobotoRegular
+            margin: 18px 0 0
+

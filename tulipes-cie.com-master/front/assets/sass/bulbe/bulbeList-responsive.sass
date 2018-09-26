@@ -1,0 +1,72 @@
+.bulbe .bulbeList
+  @media (min-width: #{$medium}) and (max-width: #{1370px - 1px})
+    font-size: 0.75em
+    .container
+      width: 990px
+      padding: 2.5px
+
+    &-tile
+      margin: 2.5px
+
+    &-small .bulbeList-tile
+      width: 236px
+      height: 150px
+
+    &-medium .bulbeList-tile
+      width: 320px
+      height: 202px
+
+    &-big .bulbeList-tile
+      width: 402px
+      height: 305px
+
+    &-favorite
+      &--title
+        font-size: 1.25em
+        margin-bottom: 12px
+
+        .ico
+          margin-right: 10px
+
+    &-page
+      padding: 12px
+      &--title
+        font-size: 1.5em
+
+
+  +tabletMobile
+    .container
+      width: $widthContainerMobile
+      flex-wrap: wrap
+
+    &-col
+      flex-direction: row
+      flex-wrap: wrap
+
+    &-tile
+      width: 375px !important
+      height: 285px !important
+      margin: 2.5px auto
+
+    &-page
+      padding: 16px 14px 16px 16px
+
+      &--title
+        font-size: 1.5em
+
+  @media (max-width: #{430px - 1px})
+    &-tile
+      width: 280px !important
+      height: 213px !important
+
+  &-video--iframe iframe
+    +tabletMobile
+      width: 90vw
+      border: 0.5px solid #6f6f6f
+
+    +tablet
+      height: 210px
+    +mediumMobile
+      height: 160px
+    +smallMobile
+      height: 140px

@@ -1,0 +1,27 @@
+{% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+{% set destinataire = "destinataire@mail.fr"|url_encode %}
+{% set subject = project.title|url_encode %}
+{% set bodyMail = ("Voir le projet " ~ project.title ~ " de Tulipe et Cie en allant à cette adresse : " ~ app.request.uri)|url_encode %}
+
+{% set urlMail = destinataire ~ "?subject=" ~ subject ~ "&body=" ~ bodyMail %}
+
+<a class="{{ class }}-share project-share" href="#">
+    <span>{{ 'project.share'|trans }}</span>
+    <span class="ico ico-externalLink">
+        {% include 'svg/external-link.svg.twig' with { 'color': '#000' } %}
+    </span>
+</a>
+<div class="{{ class }}-social project-social">
+    <a class="{{ class }}-social__link" target="_blank"
+       data-href="{{ app.request.uri }}"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.uri|url_encode }}&amp;src=sdkpreparse">
+        <span class="ico ico-circle ico-facebook fb-share-button">{% include 'svg/facebook.svg.twig' %}</span>
+    </a>
+    <a class="{{ class }}-social__link" href="https://twitter.com/share?url={{ app.request.uri|url_encode }}&via=TulipesCie&text={{ project.title|url_encode }}%20">
+        <span class="ico ico-circle ico-twitter">{% include 'svg/twitter.svg.twig' %}</span>
+    </a>
+    <a class="{{ class }}-social__link" href="mailto:{{ urlMail }}">
+        <span class="ico ico-circle ico-mail">{% include 'svg/mail.svg.twig' %}</span>
+    </a>
+</div>

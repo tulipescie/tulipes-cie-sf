@@ -1,0 +1,9 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+caramia_admin:
+    resource: "@CaramiaAdminBundle/Resources/config/routing.yml"
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% if value is not empty %}
+        {% set url = admin.generateUrl('get_file', {'id': object.id}) %}
+        <a href="{{ url }}" title="{{ value }}" target="_blank">{{ value }}</a>
+    {% endif %}
+{% endblock %}

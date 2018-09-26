@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% if news_page is not null and news_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(news_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if news_page is not null and news_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(news_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if news_page is not null and news_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(news_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+{% block bodyClass %}news{% endblock %}
+
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(news_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(news_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="social" id="social">
+        <div class="container">
+            <div class="social-block animated slideUp animated--delay-01">
+                <a href="https://www.linkedin.com/company/2901072/" target="_blank" class="social-ico">
+                    <span class="ico ico-circle ico-linkedin">
+                        {% include 'svg/linkedin.svg.twig' with { 'color': '#fff' } %}</span>
+                </a>
+                <p class="social-description">{{ 'news.description.linkedin'|trans|raw }}</p>
+            </div>
+            <div class="social-block animated slideUp animated--delay-02">
+                <a href="https://twitter.com/TulipesCie" target="_blank" class="social-ico">
+                    <span class="ico ico-circle ico-twitter">
+                        {% include 'svg/twitter.svg.twig' with { 'color': '#fff' } %}</span>
+                </a>
+                <p class="social-description">{{ 'news.description.twitter'|trans|raw }}</p>
+            </div>
+            <div class="social-block animated slideUp animated--delay-03">
+                <a href="https://www.facebook.com/Tulipes-Cie-282080538471650/" target="_blank" class="social-ico">
+                    <span class="ico ico-circle ico-facebook">
+                        {% include 'svg/facebook.svg.twig' with { 'color': '#fff' } %}</span>
+                </a>
+                <p class="social-description">{{ 'news.description.facebook'|trans|raw }}</p>
+            </div>
+            <div class="social-block animated slideUp animated--delay-04">
+                <a href="https://www.instagram.com/tulipescie" target="_blank" class="social-ico">
+                    <span class="ico ico-circle ico-instagram">
+                        {% include 'svg/instagram.svg.twig' with { 'color': '#fff' } %}</span>
+                </a>
+                <p class="social-description">{{ 'news.description.instagram'|trans|raw }}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-content">
+        <div class="container">
+            {% set k = 0 %}
+
+            {% for feed in appFeed %}
+                {% set j = (loop.index0 % 7) + 1 %}
+
+                {% if j == 1 %}
+                    {% set k = k + 1 %}
+                    <div class="news-row view-more-tile animated slideUp animated--delay-{{ "%02d"|format(k) }}">
+                {% endif %}
+
+                {% if feed.source == "Twitter" %}
+                    {% set social = "twitter" %}
+                {% elseif feed.source == "Facebook" %}
+                    {% set social = "facebook" %}
+                {% elseif feed.source == "LinkedIn" %}
+                    {% set social = "linkedin" %}
+                {% elseif feed.source == "Instagram" %}
+                    {% set social = "instagram" %}
+                {% else %}
+                    {% set social = null %}
+                {% endif %}
+
+                {% if feed.image %}
+                    {% set no_image = null %}
+                {% else %}
+                    {% set no_image = "news-no_image" %}
+                {% endif %}
+
+                <a href="{{ feed.link }}" target="_blank" class="news-tile {{ no_image }} {{ 'news-color__' ~ social }}">
+                    {% if feed.image %}
+                        <img class="news-img" src="{{ feed.image }}" alt="{{ feed.text }}">
+                    {% endif %}
+                    <p class="news-text">
+                        <span class="ico {{ 'ico-' ~ social }}">{% include 'svg/'~ social ~'.svg.twig' %}</span>
+                        <span>{{ feed.text }} [...] </span>
+                    </p>
+                </a>
+
+
+                {% if j == 7 or loop.last %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <button class="btn btn-view-more">{{ 'view_more'|trans }}</button>
+        </div>
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

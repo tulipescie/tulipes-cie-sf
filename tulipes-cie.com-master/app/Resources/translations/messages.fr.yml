@@ -1,0 +1,118 @@
+menu:
+    home: Accueil
+    agency: Agence
+    team: Équipe
+    achievements: Réalisations
+    bulbe: Le Bulbe
+    news: Actualités
+    contact: Contact
+
+slug:
+    agency: agence
+    team: equipe
+    achievements: realisations
+    bulbe: bulbe
+    news: actualites
+    project: projet
+    contact: contact
+    legal_mentions: mentions-legal
+
+home:
+    sub_title: agence de communication audiovisuelle
+    newsletter:
+        txtOpen: Newsletter
+        title: Newsletter
+        text: Pour rester au courant des dernières actualités et réalisations de Tulipes, inscrivez-vous à la newsletter.
+        plachoder_email: Entrez votre adresse email
+        submit: S'abonner
+        email_valide: L’adresse mail saisie est correcte.
+        email_no_valide: L’adresse mail saisie n’est pas valide.
+        error: Il y a un erreur lors de l'envoie du formulaire. Votre n'a pas été enregistré.
+        success: Votre inscription a bien été prise en compte.
+
+agency:
+    awards: récompenses
+    more_awards: + de
+
+achievements:
+      filterActivity: Secteurs
+      filterThematic: Thématiques
+      filterAward: Récompenses
+      filterTech: Formats ou technologies
+      filterCustomer: Clients
+      filterDirector: Réalisateurs
+      filter:
+          disp: Afficher les filtres
+          apply: Appliquer les filtres
+          cancel: Annuler
+          reset: Réinitialiser les filtres
+          reset-mobile: Réinitialiser
+      no_project: Il n'y a pour l'instant aucun projet visible.
+      no_project_by_filters: Aucun projet existant ne correspond à votre sélection.
+
+project:
+    return: Retour aux réalisations
+    bulbe_return: Retour au Bulbe
+    previous: Projet précédent
+    next: Projet suivant
+    share: Partager ce projet
+    Activity: Secteur(s)
+    Customer: Client(s)
+    Thematic: Thème(s)
+    Award: Film primé
+    Director: Réalisateur(s)
+    Tech: Format(s)
+
+footer:
+    tulipes: Tulipes
+    adress: 75, rue des Plantes
+    cp_city: 75014 Paris
+    phone: +33 (0)1 42 23 54 75
+    contact_form_link: Formulaire de Contact
+    recruitment_link: Recrutement
+    tulipes&cie: TULIPES&CIE
+    agency: L’agence
+    team: L’équipe
+    achievement: Nos réalisations
+    lab: Le Bulbe
+    news: Actualités
+    techno: Nos technologies
+    newsletter_title: S’inscrire à la Newsletter
+    newsletter_placeholder: Votre adresse email
+    newsletter_submit: OK
+    cookie: Cookies
+    legal_mentions: Mentions légales
+    credits: Crédits
+
+news:
+    description:
+        linkedin: "On vous parle <br> storytelling,<br> nos histoires, vos histoires."
+        twitter: "On tweete #innovation<br> #storytelling #Digitalisation<br> #Ville #Société #Futur"
+        facebook: "On partage<br> nos expériences…<br> Êtes-vous prêts ?"
+        instagram: "#backstages<br> La vie chez Tulipes<br> comme si vous y étiez !"
+
+contact:
+    name: Tulipes
+    adress: 75, rue des plantes
+    cp_city: 75014 Paris
+    phone: +33 (0)1 42 23 54 75
+    text: Vous voulez nous envoyer une déclaration d’amour ou simplement nous rencontrer autour d’un café ?
+    contact_us: N’hésitez pas à nous contacter !
+    form:
+        company: Société
+        name: Votre nom
+        email: Adresse Email
+        telephone: Téléphone
+        object: Choisissez un Objet*
+        file: Pièce jointe (format Word or PDF)
+        message: Votre message
+        submit: Envoyer
+        mandatory: champs obligatoires
+        response: Merci de votre message ! Nous vous répondrons dans les meilleurs délais.
+        recaptcha_error: Veuillez prouver que vous n'êtes pas un robot.
+        send_error: Une erreur lors de l'envoi du formulaire. Veuillez ressayer ultérieurement.
+
+
+view_more: Afficher plus
+contact_us: Contactez-nous !
+cookies_disclaimer: En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des statistiques de visites. <button class="%button_class%">Accepter</button>

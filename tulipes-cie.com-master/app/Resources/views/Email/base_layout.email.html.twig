@@ -1,0 +1,38 @@
+{% block body_html %}
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html lang="fr">
+    <head>
+        <title>{% block title %}Tulipes & Cie{% endblock %}</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <style>
+            {% block css %}
+                {% include 'Email/style.email.css.twig' %}
+            {% endblock %}
+        </style>
+    </head>
+    <body bgcolor="#fff">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="height: 100%;">
+        <tr>
+            <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="54" style="padding: 0 66px;line-height: 0;">
+                            {% block logo %}
+                                <img src="{{ absolute_url(asset('bundles/app/img/logo-tulipes-black.png')) }}" alt="Tulipes & Cie" style="width: 120px;">
+                            {% endblock %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="color: #333; font-size:13px; line-height: 1; font-family:arial, verdana, sans-serif;" bgcolor="#fff">
+                            <table border="0" cellpadding="0" cellspacing="0" class="wrapper">
+                                {% block email_content %}{% endblock %}
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </body>
+    </html>
+{% endblock %}

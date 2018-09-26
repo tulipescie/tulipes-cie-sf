@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+
+{% if team_page is not null and team_page.metaTitle is defined %}
+    {% block title %}{{ translateAttribute(team_page.metaTitle, app.request.locale) }}{% endblock %}
+{% endif %}
+
+{% block meta %}
+    {{ parent() }}
+    {% if team_page is not null and team_page.metaDesc is defined %}
+        <meta name="description" content="{{ translateAttribute(team_page.metaDesc, app.request.locale) }}">
+    {% endif %}
+
+    {% if team_page is not null and team_page.metaTag is defined %}
+        <meta name="keywords" content="{{ translateAttribute(team_page.metaTag, app.request.locale) }}">
+    {% endif %}
+{% endblock %}
+
+
+{% block bodyClass %}team{% endblock %}
+
+{% block body %}
+    <header class="header" style="background-image: url('{{ issetMediaImage(team_page.headerImage) }}');">
+        {% include 'navbar.html.twig' %}
+        <h1 class="header-title">{{ translateAttribute(team_page.title, app.request.locale)|raw|nl2br }}</h1>
+    </header>
+
+    <section class="dreamteam">
+        <h2 class="dreamteam-title title-section animated slideUp">{{ translateAttribute(team_page.teamTitle, app.request.locale)|raw|nl2br }}</h2>
+        <div class="container">
+            {% for member in team %}
+
+                <div class="dreamteam-tile view-more-tile animated slideUp animated--delay-{{ "%02d"|format(loop.index) }}">
+                    <div class="dreamteam-visible">
+                        <div class="dreamteam-visible__img">
+                            <img src="{{ issetMediaImage(member.image) }}" alt="{{ translateAttribute(member.image.description, app.request.locale) }}">
+                        </div>
+                    </div>
+                    <div class="dreamteam-hover">
+                        <div class="dreamteam-hover__img">
+                            <img src="{{ issetMediaImage(member.rollImage) }}" alt="{{ translateAttribute(member.rollImage.description, app.request.locale) }}">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button class="btn btn-view-more">{{ 'view_more'|trans }}</button>
+
+    </section>
+
+    <section class="teamDescribe">
+        <div class="container">
+            <div class="teamDescribe-video animated fadeSlideLtoR">
+                {% if team_page.videoUrl %}
+                    <iframe src="{{ team_page.videoUrl }}" class="iframeVideo" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+            </div>
+            <div class="teamDescribe-text animated fadeSlideRtoL">
+                <h2 class="title-section">{{ translateAttribute(team_page.historyTitle, app.request.locale)|raw|nl2br }}</h2>
+                {{ translateAttribute(team_page.historyDesc, app.request.locale)|raw }}
+            </div>
+        </div>
+    </section>
+
+    <section class="addContent">
+        <div class="container">
+            <div class="addContent-img">
+                <span class="ico ico-tulipes-blazon animated slideUp">
+                    {% include 'svg/tulipes-blazon.svg.twig' with { 'color1': '#af1423', 'color2': '#007d91', 'color3': '#9bd2d2' } %}
+                </span>
+            </div>
+            <div class="addContent-text">
+                <h2 class="title-section animated fadeSlideRtoL animated--delay-01">{{ translateAttribute(team_page.joinTitle, app.request.locale)|raw|nl2br }}</h2>
+                <div class="animated fadeSlideRtoL animated--delay-02">{{ translateAttribute(team_page.joinDesc, app.request.locale)|raw }}</div>
+                <div class="addContent-recruitment">
+                    <a class="btn animated fadeSlideRtoL animated--delay-03"
+                       href="{{ path('app_contact') }}{{ locale }}/{{ 'slug.contact'|trans }}#recruitment">
+                        {{ translateAttribute(team_page.joinUrlLabel, app.request.locale)|raw|nl2br }}
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {% include 'contact-us.html.twig' %}
+
+    {% include 'footer.html.twig' %}
+
+{% endblock %}

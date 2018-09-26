@@ -1,0 +1,14 @@
+# www.robotstxt.org/
+# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+
+User-agent: *
+Disallow: /admin
+Disallow: bundles/
+Disallow: ../app/
+Disallow: ../bin/
+Disallow: ../node_modules/
+Disallow: ../src/
+Disallow: ../var/
+Disallow: ../vendor/
+
+Sitemap: http://tulipes-cie.com/sitemap.xml

@@ -1,0 +1,24 @@
+.legalMentions
+
+    .container
+        width: 865px
+        +tabletMobile
+            width: $widthContainerMobile
+
+
+    &-content
+        text-align: justify
+
+        h1, h2, h3, h4, h5, h6
+            @extend .FabrikatBlack
+            margin-top: 50px
+            margin-bottom: 20px
+            color: $colorBlack1
+
+            &:first-of-type
+                margin-top: 0
+
+        p
+            color: $colorBlack2
+            margin: 0
+

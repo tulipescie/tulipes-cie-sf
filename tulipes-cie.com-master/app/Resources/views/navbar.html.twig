@@ -1,0 +1,65 @@
+{% if app.request.locale == 'fr' %}
+    {% set locale = app.request.locale %}
+{%  else %}
+    {% set locale = '' %}
+{% endif %}
+{% set route = app.request.attributes.get('_route') %}
+
+<nav class="navbar">
+    <a href="{{ url('homepage') }}" class="navbar-brand">
+        <span class="ico ico-tulipes">
+            {% include 'svg/tulipes.svg.twig' %}
+        </span>
+    </a>
+
+    <button class="navbar-burger"></button>
+
+    <ul class="navbar-menu">
+        <li>
+            <a href="{{ url('homepage') }}"
+               class="navbar-menu__link {% if route == 'homepage' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.home'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_agency') }}{{ locale }}/{{ 'slug.agency'|trans }}"
+               class="navbar-menu__link {% if route == 'app_agency' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.agency'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_team') }}{{ locale }}/{{ 'slug.team'|trans }}"
+               class="navbar-menu__link {% if route == 'app_team' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.team'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_achievements') }}{{ locale }}/{{ 'slug.achievements'|trans }}"
+               class="navbar-menu__link {% if route == 'app_achievements' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.achievements'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_bulbe') }}{{ locale }}/{{ 'slug.bulbe'|trans }}"
+               class="navbar-menu__link {% if route == 'app_bulbe' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.bulbe'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_news') }}{{ locale }}/{{ 'slug.news'|trans }}"
+               class="navbar-menu__link {% if route == 'app_news' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.news'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ url('app_contact') }}{{ locale }}/{{ 'slug.contact'|trans }}"
+               class="navbar-menu__link {% if route == 'app_contact' %}navbar-menu__link-active{% endif %}">
+                {{ 'menu.contact'|trans }}</a>
+        </li>
+
+        <li class="navbar-menu__footer">
+            {% include 'social-icons.html.twig' %}
+            <p class="navbar-menu__credits">
+                {#<a href="#">{{ 'footer.cookie'|trans }}</a>#}
+                {#<span>|</span>#}
+                <a href="{{ url('app_legal_mentions') }}{{ locale }}/{{ 'slug.legal_mentions'|trans }}">{{ 'footer.legal_mentions'|trans }}</a>
+                {#<span>|</span>#}
+                {#<a href="#">{{ 'footer.credits'|trans }}</a>#}
+            </p>
+        </li>
+    </ul>
+</nav>

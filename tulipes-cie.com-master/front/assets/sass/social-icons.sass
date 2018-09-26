@@ -1,0 +1,71 @@
+.social-icons
+    display: flex
+    align-items: center
+    margin: 0
+    padding: 0
+    justify-content: center
+
+    a
+        margin-right: 8px
+
+        &:last-of-type
+            margin-right: 0
+
+    .ico
+        height: 24px
+        width: 24px
+        position: relative
+
+
+        &::after
+            content: ''
+            display: block
+            position: absolute
+            background-color: $colorWhite
+            bottom: 0
+            height: 0
+            width: 0
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            transition: all .3s ease
+            border-radius: 50%
+            z-index: 1
+
+        &:hover
+            &::after
+                width: 24px
+                height: 24px
+
+        svg
+            width: 60%
+            z-index: 2
+
+.home
+    .ico
+        &-circle
+            border: 2px solid rgba(255,255,255, 0.6)
+            &:hover
+                border: none
+
+        &-svg-fill
+            fill: rgba(255,255,255, 0.6)
+
+        &::after
+            background-color: rgba(255,255,255, 0.6)
+
+        &:hover
+            .ico-svg-fill
+                fill: $colorWhite
+
+.footer
+    .ico
+        &-circle
+            border: 2px solid $colorGrey5
+
+        &-svg-fill
+            fill: $colorGrey5
+
+        &:hover
+            .ico-svg-fill
+                fill: $colorBlack0

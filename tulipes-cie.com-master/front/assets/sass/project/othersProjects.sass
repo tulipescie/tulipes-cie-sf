@@ -1,0 +1,87 @@
+.project .othersProjects
+    padding: 32px 0
+    text-align: center
+    background-color: $colorGrey4
+    +tabletMobile
+        padding: 20px 0
+
+    .container
+        width: auto
+        padding: 0
+
+
+    &-slider
+        width: 865px
+        display: inline-block
+        +tabletMobile
+            width: 100vw
+
+    &-slide
+        width: 205px
+        height: 130px
+        position: relative
+        +tabletMobile
+            width: 130px
+            height: 82px
+
+    &-link
+        position: absolute
+        left: 8px
+        top: 0
+        right: 8px
+        bottom: 0
+        overflow: hidden
+
+        &:hover::before
+            content: ''
+            display: block
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            top: 0
+            background-color: rgba(35,45,81,0.9)
+            z-index: 1
+
+    &-img
+        max-height: 100%
+        overflow: hidden
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+
+    &-name
+        display: none
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 60%
+        text-align: center
+        @extend .RobotoBold
+        font-size: 1em
+        color: $colorWhite
+        z-index: 1
+
+    &-link:hover > .othersProjects-name
+        display: block
+
+    .slick-prev, .slick-next
+        display: block !important
+        width: 18px
+        height: 32px
+        &::before
+            background-image: url($assetsPathImg + 'arrow.svg')
+            display: block
+            background-repeat: no-repeat
+            content: ''
+            width: 18px
+            height: 32px
+
+    .slick-prev
+        left: -52px
+
+    .slick-next
+        transform: rotateY(180deg) translateY(-50%)
+        right: -52px
+

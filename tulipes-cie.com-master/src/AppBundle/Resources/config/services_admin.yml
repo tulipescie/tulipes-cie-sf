@@ -1,0 +1,152 @@
+services:
+    app.admin.vision:
+        class: AppBundle\Admin\VisionAdmin
+        arguments: [~, AppBundle\Entity\Vision, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "L'agence", label: Vision, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.figure:
+        class: AppBundle\Admin\FigureAdmin
+        arguments: [~, AppBundle\Entity\Figure, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "L'agence", label: Figure, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.award:
+        class: AppBundle\Admin\AwardAdmin
+        arguments: [~, AppBundle\Entity\Award, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "L'agence", label: Award, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.number:
+        class: AppBundle\Admin\NumberAdmin
+        arguments: [~, AppBundle\Entity\Number, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "L'agence", label: Number, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Project, label: entity_project, label_catalogue: "Admin", icon: '<i class="fa fa-archive"></i>', on_top: true, label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.activity_filter:
+        class: AppBundle\Admin\ActivityFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\ActivityFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Filtre des projets, label: entity_activity_filter, label_catalogue: "Admin", icon: '<i class="fa fa-filter"></i>', label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.thematic_filter:
+        class: AppBundle\Admin\ThematicFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\ThematicFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Filtre des projets, label: entity_thematic_filter, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.award_filter:
+        class: AppBundle\Admin\AwardFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\AwardFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Filtre des projets, label: entity_award_filter, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.tech_filter:
+        class: AppBundle\Admin\TechFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\TechFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Filtre des projets, label: entity_tech_filter, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.customer_filter:
+        class: AppBundle\Admin\CustomerFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\CustomerFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "L'agence", label: entity_customer_filter, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.director_filter:
+        class: AppBundle\Admin\DirectorFilterAdmin
+        arguments: [~, AppBundle\Entity\Filter\DirectorFilter, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Filtre des projets, label: entity_director_filter, label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.project_bulbe:
+        class: AppBundle\Admin\ProjectBulbeAdmin
+        arguments: [~, AppBundle\Entity\Bulbe\ProjectBulbe, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Bulbe, label: "Projets Bulbe", label_catalogue: "Admin", icon: '<i class="fa fa-flask"></i>', label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.favorite_bulbe:
+        class: AppBundle\Admin\FavoriteBulbeAdmin
+        arguments: [~, AppBundle\Entity\Bulbe\FavoriteBulbe, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Bulbe, label: "Coup de cœur", label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.video_bulbe:
+        class: AppBundle\Admin\VideoBulbeAdmin
+        arguments: [~, AppBundle\Entity\Bulbe\VideoBulbe, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Bulbe, label: "Videos Bulbe", label_catalogue: "Admin", label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.team_member:
+        class: AppBundle\Admin\TeamMemberAdmin
+        arguments: [~, AppBundle\Entity\TeamMember, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Team, label: entity_team_member, label_catalogue: "Admin", icon: '<i class="fa fa-users"></i>', on_top: true, label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.contact:
+        class: AppBundle\Admin\ContactAdmin
+        arguments: [~, AppBundle\Entity\Contact, AppBundle\Controller\Admin\ContactAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Contact, label: entity_contact, label_catalogue: "Admin", icon: '<i class="fa fa-envelope"></i>', on_top: true, label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.abstract_page:
+        class: AppBundle\Admin\PageAdmin
+        arguments: [~, AppBundle\Entity\Page\AbstractPage, AppBundle\Controller\Admin\PageAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Page, label: Page, label_catalogue: "Admin", icon: '<i class="fa fa-file"></i>', on_top: true, label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.newsletter_subscriber:
+        class: AppBundle\Admin\NewsletterSubscriberAdmin
+        arguments: [~, AppBundle\Entity\NewsletterSubscriber, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inscription à la newsletter", label: entity_newsletter_subscriber, label_catalogue: "Admin", icon: '<i class="fa fa-address-card-o"></i>', on_top: true, label_translator_strategy: sonata.admin.label.strategy.underscore }
+        calls:
+            - [setTranslationDomain, [Admin]]
+
+    app.admin.user:
+        class: Caramia\AdminBundle\Admin\UserAdmin
+        arguments: [~, Caramia\AdminBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Administrateurs", label: Administateur, label_catalogue: "Admin", icon: '<i class="fa fa-user-circle"></i>', on_top: true }
+        calls:
+            - [setTranslationDomain, [Admin]]

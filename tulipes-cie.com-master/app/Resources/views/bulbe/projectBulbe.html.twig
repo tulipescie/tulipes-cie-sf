@@ -1,0 +1,41 @@
+{% if (isInstanceof(bulbe, "ProjectBulbe")) %}
+    <a class="bulbeList-tile bulbeList-project animated slideUp"
+       href="{{ path('app_project', {'projectSlug': bulbe.bulbeProject.slug }) }}">
+
+        <div class="bulbeList-imgBlock slideshow">
+{#
+            <img class="bulbeList-img"
+                 src="{{ issetMediaImage(bulbe.bulbeProject.thumb1Image) }}"
+                 alt="{{ translateAttribute(bulbe.bulbeProject.thumb1Image.description, app.request.locale) }}"
+            >
+#}
+
+            <ul class="slideshow-list">
+                {% for i in 1..4 %}
+                    {% set thumb = attribute(bulbe.bulbeProject, 'thumb'~i~'Image') %}
+
+                    {% if thumb %}
+                        <li class="slideshow-slide
+                                {% if i==1 %}slideshow-slide--active{% endif %}">
+                            <img class="bulbeList-img"
+                               src="{{ issetMediaImage(thumb) }}"
+                               alt="{{ translateAttribute(thumb.description, app.request.locale) }}">
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div class="bulbeList-textBlock">
+            <h3 class="bulbeList-project--title">
+                {{ bulbe.bulbeProject.title }}
+            </h3>
+            <p class="bulbeList-text bulbeList-project--describe">
+                {{ translateAttribute(bulbe.title, app.request.locale) }}
+            </p>
+        </div>
+
+    </a>
+{% endif %}

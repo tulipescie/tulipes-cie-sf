@@ -1,0 +1,115 @@
+.footer
+    width: 100%
+    background-color: #000
+    @extend .FabrikatRegular
+    font-size: 1em
+    color: $colorWhite
+
+    &-section
+        display: flex
+        width: $widthContainer
+        margin: auto
+        +mediumDevice
+            width: $widthContainerMedium
+        +tabletMobile
+            width: 100%
+
+    .line-section
+        margin: 0
+
+.sitemap
+    &-col
+        width: 205px
+        margin: 32px 17px 28px 0
+        text-align: center
+        +mediumDevice
+            margin-right: 10px
+        +tabletMobile
+            display: none
+
+        &:last-of-type
+            margin-right: 0
+            +tabletMobile
+                margin-right: auto
+
+        &-title
+            text-transform: uppercase
+            margin: 0 0 25px
+            +tabletMobile
+                display: none
+
+        &-list
+            list-style: none
+            margin: 0
+            padding: 0
+            color: $colorGrey5
+
+            li
+                cursor: pointer
+
+            a:hover
+                text-decoration: underline
+
+        &:nth-of-type(1)
+            a
+                text-decoration: underline
+
+    &-newsletter
+        +tabletMobile
+            display: block
+            margin: 40px auto
+
+        .newsletter-message
+            display: none
+            margin: 0
+            @extend .FabrikatRegular
+            color: $colorGrey5
+            font-size: 0.85em
+
+        &__form
+            font-size: 0.75em
+            color: $colorBlack1
+            display: flex
+            +tabletMobile
+                display: none
+
+            [type=email]
+                width: 165px
+                height: 32px
+                text-align: center
+                background-color: #1a1a1a
+                color: $colorGrey2
+                border: none
+                &::placeholder
+                    @extend .FabrikatItalic
+
+            [type=submit]
+                width: 32px
+                height: 32px
+                margin-left: 0.5em
+                background-color: #1a1a1a
+                border: none
+                @extend .FabrikatBold
+                color: $colorBlack1
+
+        .social-icons
+            margin-top: 25px
+            +tabletMobile
+                margin: 0
+
+.credits
+    &-left
+        width: 50%
+        +tabletMobile
+            width: 100%
+            text-align: center
+
+    &-right
+        width: 50%
+        display: flex
+        justify-content: flex-end
+        +tabletMobile
+            display: none
+
+    &-links
+        font-size: 0.75em
